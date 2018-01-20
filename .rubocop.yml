@@ -1,0 +1,73 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 5.1
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - '**/Gemfile'
+    - '**/Vagrantfile'
+    - 'vendor/**/*'
+
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*'
+    - 'app/models/concerns/*'
+    - 'app/controllers/concerns/*'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'
+
+Naming/FileName:
+  Exclude:
+    - 'Capfile'
+
+Rails:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+    - 'app/models/role.rb'
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/SaveBang:
+  Enabled: false
+
+Security/YAMLLoad:
+  Enabled: false
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/OptionHash:
+  Enabled: true
+
+Style/Send:
+  Enabled: true
+
+Style/SingleLineBlockParams:
+  Enabled: true
+
+Style/StringMethods:
+  Enabled: true
