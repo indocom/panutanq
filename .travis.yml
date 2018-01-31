@@ -11,6 +11,8 @@ env:
 matrix:
   allow_failures:
     - env: COMMAND="brakeman"
+    - env: COMMAND="scss-lint app/assets/stylesheets"
+    - env: COMMAND="rake traceroute FAIL_ON_ERROR=1"
 
 script:
   - "bundle exec $COMMAND"

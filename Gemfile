@@ -73,7 +73,7 @@ group :development, :test do
   # debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Rspec testing framework
-  gem 'rspec'
+  gem 'rspec-rails'
   # Factory bot: factories for testing
   gem 'factory_bot_rails'
 end
@@ -85,8 +85,6 @@ end
 group :development, :test do
   # Ruby linter
   gem 'rubocop'
-  # HAML linter
-  gem 'haml_lint'
   # SCSS linter
   gem 'scss_lint', require: false
 end

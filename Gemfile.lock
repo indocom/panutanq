@@ -117,6 +117,7 @@ GEM
       turbolinks
     json (2.1.0)
     key_struct (0.4.2)
+    libv8 (3.16.14.19)
     libv8 (3.16.14.19-x86_64-linux)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -197,10 +198,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rolify (5.2.0)
-    rspec (3.7.0)
-      rspec-core (~> 3.7.0)
-      rspec-expectations (~> 3.7.0)
-      rspec-mocks (~> 3.7.0)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -209,7 +206,15 @@ GEM
     rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
-    rspec-support (3.7.0)
+    rspec-rails (3.7.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
     rubocop (0.52.1)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
@@ -337,7 +342,7 @@ DEPENDENCIES
   rails_real_favicon (>= 0.0.7)
   rake
   rolify
-  rspec
+  rspec-rails
   rubocop
   sass-rails
   schema_validations
