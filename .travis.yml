@@ -7,6 +7,9 @@ services: postgresql
 env:
   - COMMAND="rspec"
   - COMMAND="rubocop -D -f simple"
+  - COMMAND="brakeman"
+  - COMMAND="scss-lint app/assets/stylesheets"
+  - COMMAND="rake traceroute FAIL_ON_ERROR=1"
 
 matrix:
   allow_failures:
