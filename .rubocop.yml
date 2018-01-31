@@ -60,6 +60,10 @@ Style/CollectionMethods:
 Style/Documentation:
   Enabled: false
 
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
 Style/OptionHash:
   Enabled: true
 
