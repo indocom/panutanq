@@ -94,15 +94,6 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    haml (5.0.4)
-      temple (>= 0.8.0)
-      tilt
-    haml_lint (0.27.0)
-      haml (>= 4.0, < 5.1)
-      rainbow
-      rake (>= 10, < 13)
-      rubocop (>= 0.50.0)
-      sysexits (~> 1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
@@ -118,7 +109,6 @@ GEM
     json (2.1.0)
     key_struct (0.4.2)
     libv8 (3.16.14.19)
-    libv8 (3.16.14.19-x86_64-linux)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -275,8 +265,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sysexits (1.2.0)
-    temple (0.8.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
     therubyracer (0.12.3)
@@ -319,6 +307,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   autoprefixer-rails
+  bcrypt
   bootstrap-sass
   brakeman
   browser_details
@@ -330,7 +319,6 @@ DEPENDENCIES
   dotenv-rails
   exception_notification
   factory_bot_rails
-  haml_lint
   jquery-rails
   jquery-turbolinks
   listen

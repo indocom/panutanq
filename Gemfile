@@ -120,6 +120,8 @@ gem 'rolify'
 gem 'cancancan'
 # Adds various security stuff. You need protection!
 gem 'rack-protection'
+# BCrypt hashing
+gem 'bcrypt'
 
 group :development do
   # Security checkup
