@@ -127,5 +127,4 @@ group :development do
   # Security checkup
   gem 'brakeman'
 end
-
 ### END SECURITY
