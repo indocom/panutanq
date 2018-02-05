@@ -1,7 +1,9 @@
-<div class="row">
-  <div class="col-xs-12">
-<h1>Welcome</h1>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <h1>Welcome</h1>
+    </div>
   </div>
-  <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-  <%= link_to "Create New Admin", new_admin_registration_path %>
+  <%= button_to"Create New Admin", new_admin_registration_path, class: "btn btn-primary" %><br>
+  <%= button_to "Logout", destroy_admin_session_path, method: :delete, class: "btn-secondary" %>
 </div>
