@@ -10,48 +10,40 @@
       </ul>
     </div>
   <% end %>
-  
+ 
   <div class="row">
-    <div class="field">
-      <div class="col-sm-3">
-        <%= form.label :name %>
-      </div>
-      <div class="col-sm-9">
-        <%= form.text_field :name, id: :feedback_name, placeholder: 'Your name' %>
-      </div>
+    <div class="col-sm-3">
+      <%= form.label :name %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :name, id: :feedback_name, placeholder: 'Your name' %>
     </div>
   </div>
 
   <div class="row">
-    <div class="field">
-      <div class="col-sm-3">
-        <%= form.label :email %>
-      </div>
-      <div class="col-sm-9">
-        <%= form.text_field :email, id: :feedback_email, placeholder: 'Email address' %>
-      </div>
+    <div class="col-sm-3">
+      <%= form.label :email %>
+    </div>
+    <div class="col-sm-9">
+      <%= form.text_field :email, id: :feedback_email, placeholder: 'Email address' %>
     </div>
   </div>
 
   <div class="row">
-    <div class="field">
-      <div class="col-sm-3 col-xs-4">
-        <%= form.label :anonymous %>
-      </div>
-      <div class="col-sm-9 col-xs-8"
-        <%= form.check_box :anonymous, id: :feedback_anonymous %>
-      </div>
+    <div class="col-sm-3 col-xs-4">
+      <%= form.label :anonymous %>
+    </div>
+    <div class="col-sm-9 col-xs-8"
+      <%= form.check_box :anonymous, id: :feedback_anonymous %>
     </div>
   </div>
 
   <div class="row">
-    <div class="field">
-      <div class="col-sm-3">
-        <%= form.label :message %>
-      </div>
-      <div class="col-sm-9">
+    <div class="col-sm-3">
+      <%= form.label :message %>
+    </div>
+    <div class="col-sm-9">
       <%= form.text_area :message, id: :feedback_message, placeholder: 'Write something...' %>
-      </div>
     </div>
   </div>
 
@@ -62,5 +54,6 @@
       </div>
     </div>
   </div>
+
 
 <% end %>
