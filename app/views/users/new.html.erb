@@ -1,0 +1,14 @@
+<h1>Create New User</h1>
+
+<%= form_for User.new, url:create_user_path do |f| %>
+		<p>
+		<%= f.label :email  %>
+		<%= f.text_field :email %>
+		</p>
+		<p>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		</p>
+		<%= f.submit 'Create' %>
+		<%= link_to 'Home', root_path %>
+<% end %>
