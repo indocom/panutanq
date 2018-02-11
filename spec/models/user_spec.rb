@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/LineLength
 # == Schema Information
 #
 # Table name: users
@@ -16,13 +15,13 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  is_admin               :boolean          default(FALSE)
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-# rubocop:enable Metrics/LineLength
 
 require 'rails_helper'
 
