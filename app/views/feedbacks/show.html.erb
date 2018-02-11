@@ -1,24 +1,56 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @feedback.name %>
-</p>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="sent">
+			<h2>Your feedback has been sent.</h2>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @feedback.email %>
-</p>
+<div class="row">
+	<div class="col-sm-3">
+  	<label for="name"><strong>Name:</strong></label>
+  </div>
+  <div class="col-sm-9">
+  	<%= @feedback.name %>
+	</div>
+</div>
 
-<p>
-  <strong>Anonymous:</strong>
-  <%= @feedback.anonymous %>
-</p>
+<div class="row">
+  <div class="col-sm-3">
+  	<label for="email"><strong>Email Address:</strong></label>
+  </div>
+  <div class="col-sm-9">
+  	<%= @feedback.email %>
+  </div>
+</div>
 
-<p>
-  <strong>Message:</strong>
-  <%= @feedback.message %>
-</p>
+<!--
+<div class="row">
+	<div class="col-sm-3">
+  	<label for="anon"><strong>Anonymous:</strong></label>
+  </div>
+	<div class="col-sm-9">
+  	<%= @feedback.anonymous %>
+  </div>
+</div>
+-->
 
-<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
-<%= link_to 'Back', feedbacks_path %>
+<div class="row">
+	<div class="col-sm-3">
+  	<label for="message"><strong>Message:</strong></label>
+  </div>
+  <div class="col-sm-9">
+  	<%= @feedback.message %>
+  </div>	
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+<!--
+		<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+-->
+		<%= link_to 'Back', feedbacks_path %>
+	</div>
+</div>
