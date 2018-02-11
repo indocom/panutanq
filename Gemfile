@@ -28,11 +28,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 # Use Bootstrap, the CSS framework (getbootstrap.com)
-gem 'bootstrap-sass'
+gem 'bootstrap'
 # Javascript interpreter
 gem 'therubyracer', platforms: :ruby
-# Autoprefixer for SCSS
-gem 'autoprefixer-rails'
 
 group :development do
   # Favicon set
@@ -64,8 +62,6 @@ group :development do
   gem 'spring'
   # Shoot those n+1 queries!
   gem 'bullet'
-  # Trace routes
-  gem 'traceroute'
 end
 
 group :development, :test do
@@ -76,6 +72,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Factory bot: factories for testing
   gem 'factory_bot_rails'
+  # Trace routes
+  gem 'traceroute'
 end
 
 ### END UTILITIES
@@ -123,7 +121,7 @@ gem 'rack-protection'
 # BCrypt hashing
 gem 'bcrypt'
 
-group :development do
+group :development, :test do
   # Security checkup
   gem 'brakeman'
 end
