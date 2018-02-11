@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: feedbacks
@@ -13,9 +15,9 @@
 
 FactoryBot.define do
   factory :feedback do
-    name "MyString"
-    email ""
+    name 'MyString'
+    email ''
     anonymous false
-    message "MyText"
+    message 'MyText'
   end
 end
