@@ -28,11 +28,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 # Use Bootstrap, the CSS framework (getbootstrap.com)
-gem 'bootstrap-sass'
+gem 'bootstrap'
 # Javascript interpreter
 gem 'therubyracer', platforms: :ruby
-# Autoprefixer for SCSS
-gem 'autoprefixer-rails'
 
 group :development do
   # Favicon set
