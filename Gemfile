@@ -64,8 +64,6 @@ group :development do
   gem 'spring'
   # Shoot those n+1 queries!
   gem 'bullet'
-  # Trace routes
-  gem 'traceroute'
 end
 
 group :development, :test do
@@ -76,6 +74,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Factory bot: factories for testing
   gem 'factory_bot_rails'
+  # Trace routes
+  gem 'traceroute'
 end
 
 ### END UTILITIES
@@ -121,7 +121,7 @@ gem 'cancancan'
 # Adds various security stuff. You need protection!
 gem 'rack-protection'
 
-group :development do
+group :development, :test do
   # Security checkup
   gem 'brakeman'
 end
