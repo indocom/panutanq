@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/LineLength
 # == Schema Information
 #
-# Table name: admins
+# Table name: users
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -19,12 +19,12 @@
 #
 # Indexes
 #
-#  index_admins_on_email                 (email) UNIQUE
-#  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 # rubocop:enable Metrics/LineLength
 
-class Admin < ApplicationRecord
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

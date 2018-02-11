@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/LineLength
 # == Schema Information
 #
-# Table name: admins
+# Table name: users
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -19,13 +19,13 @@
 #
 # Indexes
 #
-#  index_admins_on_email                 (email) UNIQUE
-#  index_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 # rubocop:enable Metrics/LineLength
 
-require 'rails_helper'
-
-RSpec.describe Admin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+FactoryBot.define do
+  factory :user do
+    
+  end
 end
