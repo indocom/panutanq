@@ -1,3 +1,37 @@
 // Place all the styles related to the Feedbacks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+	padding: 0 1.25em 1em 1.25em;
+}
+
+input[type=text], select, textarea {
+	margin: auto;
+	width: 100%;
+	padding: 1em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+label {
+	padding: 0 1em 1em 0;
+	display: inline-block;
+}
+
+input[type=submit] {
+	background-color: #1D1075;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	float: left;
+	width: 100%;
+}
+
+
+textarea {
+	height: 10em;
+}
