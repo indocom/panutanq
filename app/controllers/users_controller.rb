@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-#	before_action :authorize_admin, only: :create
+  #	before_action :authorize_admin, only: :create
 
   def new
     @user = User.new
@@ -14,10 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
-#  private def authorize_admin
-#    return unless !current_user.is_admin?
-#    redirect_to root_path, alert: 'Admins only!'
-#  end
+  #  private def authorize_admin
+  #    return unless !current_user.is_admin?
+  #    redirect_to root_path, alert: 'Admins only!'
+  #  end
 
   private def user_params
     params.require(:user).permit(:email, :password)
