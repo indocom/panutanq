@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   #	before_action :authorize_admin, only: :create
-  
+
   def new
     @user = User.new
   end
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
   #  end
 
   private def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password)
   end
 end

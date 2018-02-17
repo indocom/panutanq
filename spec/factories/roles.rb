@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Metrics/LineLength
 # == Schema Information
 #
@@ -19,6 +21,5 @@
 
 FactoryBot.define do
   factory :role do
-    
   end
 end
