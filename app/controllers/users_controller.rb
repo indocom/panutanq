@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to new_user_session_path
+  end
+
   #  private def authorize_admin
   #    return unless !current_user.is_admin?
   #    redirect_to root_path, alert: 'Admins only!'
