@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -26,7 +27,6 @@
 
 class User < ApplicationRecord
   rolify
-  resourcify
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   # Include default devise modules. Others available are:
@@ -36,5 +36,9 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.encrypted_password = BCrypt::Password.create(password)
+  end
+
+  def all_roles
+    roles.pluck(:name).join(', ') if roles.pluck(:name).join(', ') != ''
   end
 end

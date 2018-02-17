@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  #	before_action :authorize_admin, only: :create
-
   def index
     @users = User.all
   end
@@ -38,15 +36,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def authorize
+    user = User.find(params[:id])
+    if params[:admin] == '1'
+      user.add_role(:admin)
+    elsif params[:admin] == '0'
+      user.remove_role(:admin)
+    end
+
+    if params[:manager] == '1'
+      user.add_role(:manager)
+    elsif params[:manager] == '0'
+      user.remove_role(:manager)
+    end
+
+    if params[:content_manager] == '1'
+      user.add_role(:content_manager)
+    elsif params[:content_manager] == '0'
+      user.remove_role(:content_manager)
+    end
+    redirect_to root_path
+  end
+
   def destroy
     User.find(params[:id]).destroy
     redirect_to new_user_session_path
   end
-
-  #  private def authorize_admin
-  #    return unless !current_user.is_admin?
-  #    redirect_to root_path, alert: 'Admins only!'
-  #  end
 
   private def user_params
     params.require(:user).permit(:fullname, :email, :password)

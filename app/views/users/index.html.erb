@@ -1,9 +1,12 @@
 <h3>Your Account</h3>
 <p>
-Full Name: <%= User.find(session["warden.user.user.key"][0][0]).fullname %></td>
+Full Name: <%= current_user.fullname %></td>
 </p>
 <p>
-Email: <%= User.find(session["warden.user.user.key"][0][0]).email %></td>
+Email: <%= current_user.email %></td>
+</p>
+<p>
+Roles: <%= current_user.roles.pluck(:name).join(",") %></td>
 </p>
 
 <h3>Other Accounts</h3>
@@ -13,7 +16,7 @@ Email: <%= User.find(session["warden.user.user.key"][0][0]).email %></td>
     <tr>
       <th>Full Name</th>
       <th>Email</th>
-      <th>Position</th>
+      <th>Roles</th>
     </tr>
   </thead>
   <tbody>
@@ -22,8 +25,8 @@ Email: <%= User.find(session["warden.user.user.key"][0][0]).email %></td>
       		<tr>
         		<td><%= user.fullname %></td>
         		<td><%= user.email %></td>
-        		<td>To be implemented</td>
-        		<td><%= link_to 'Edit User' %></td>
+        		<td><%= user.all_roles || 'None' %></td>
+        		<td><%= link_to 'Edit User',edit_user_path(id: user.id)  %></td>
 	        	<td><%= link_to 'Delete', user_path(id: user.id), data: { 	confirm: "Are you sure?" }, method: :delete %></td>
       		</tr>
       	<% end %>
