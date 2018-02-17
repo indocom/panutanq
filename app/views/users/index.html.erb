@@ -1,0 +1,21 @@
+<h1>List of Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.fullname %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Delete', user_path(id: user.id), data: { confirm: "Are you sure?" }, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Back", root_path %>
