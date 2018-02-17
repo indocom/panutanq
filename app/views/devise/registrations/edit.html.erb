@@ -4,8 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :fullname %><br />
+    <%= f.text_field :fullname, autofocus: true, autocomplete: "name" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -18,7 +17,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
-#  name                   :string
+#  fullname               :string
 #
 # Indexes
 #
