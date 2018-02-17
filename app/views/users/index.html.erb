@@ -18,7 +18,7 @@ Email: <%= User.find(session["warden.user.user.key"][0][0]).email %></td>
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    	<% if user.id != session["warden.user.user.key"][0][0] %>
+    	<% if user != current_user %>
       		<tr>
         		<td><%= user.fullname %></td>
         		<td><%= user.email %></td>
