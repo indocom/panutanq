@@ -1,0 +1,14 @@
+<h1>Change Password</h1>
+
+<%= form_for @user do |f| %>
+		<p>
+		<%= f.label :password, 'New Password' %>
+		<%= f.password_field :password %>
+		</p>
+		<p>
+		<%= f.label :password_confirmation, 'Confirm Password' %>
+		<%= f.password_field :password_confirmation %>
+		</p>
+		<%= f.submit 'Change' %>
+		<%= link_to 'Back', root_path %>
+<% end %>
