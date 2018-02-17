@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     elsif params[:content_manager] == '0'
       user.remove_role(:content_manager)
     end
-    redirect_to root_path
+    redirect_to users_path
   end
 
   def destroy
