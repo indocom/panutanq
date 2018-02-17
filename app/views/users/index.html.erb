@@ -1,0 +1,24 @@
+<h3>Your Account</h3>
+<p>
+Full Name: <%= current_user.fullname %></td>
+</p>
+<p>
+Email: <%= current_user.email %></td>
+</p>
+<p>
+Roles: <%= current_user.roles.pluck(:name).join(",") %></td>
+</p>
+
+<h3>Other Accounts</h3>
+    <% @users.each do |user| %>
+    	<% if user != current_user %>
+            <br>Full Name: <%= user.fullname %>
+        		<br>Email: <%= user.email %>
+        		<br>Roles: <%= user.all_roles || 'None' %>
+        		<br><%= link_to 'Edit User', edit_user_path(id: user.id), class: "btn btn-warning btn-sm"  %>
+	        	<%= link_to 'Delete', user_path(id: user.id), data: { 	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
+      	<% end %>
+    <% end %>
+<br>
+<br>
+<%= link_to "Back", root_path, class: "btn-primary btn btn-block" %>

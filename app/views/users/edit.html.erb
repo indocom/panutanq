@@ -1,0 +1,23 @@
+<h1>Edit Account</h1>
+	<%= form_for @user, url: edit_user_authority_path do |f| %>
+        <%= f.label(:admin) do %>
+          Administrator:
+          <%= hidden_field_tag(:admin, 0) %>
+          <%= check_box_tag(:admin, 1, @user.has_role?(:admin)) %>
+        <% end %>
+        <br>
+        <%= f.label(:manager) do %>
+          Manager:
+          <%= hidden_field_tag(:manager, 0) %>
+          <%= check_box_tag(:manager, 1, @user.has_role?(:manager)) %>
+        <% end %>
+        <br>
+        <%= f.label(:content_manager) do %>
+          Content Manager:
+          <%= hidden_field_tag(:content_manager, 0) %>
+          <%= check_box_tag(:content_manager, 1, @user.has_role?(:content_manager)) %>
+          <br>
+          <%= f.submit 'Save' %>
+        <% end %>
+    <% end %>
+   
