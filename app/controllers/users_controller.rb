@@ -3,14 +3,17 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    authorize! :read, @users
   end
 
   def show
     @user = User.find(params[:id])
+    authorize! :read, @user
   end
 
   def new
     @user = User.new
+    authorize! :create, @user, message: 'You are not authorized to create new account'
   end
 
   def create
@@ -24,6 +27,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    authorize! :edit, @user
   end
 
   def update
@@ -59,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    authorize! :delete, User
     User.find(params[:id]).destroy
     redirect_to new_user_session_path
   end

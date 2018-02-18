@@ -37,7 +37,7 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", data: {  confirm: "Are you sure?" }, class: "btn btn-block btn-warning" %>
   </div>
 <% end %>
-<%= link_to "Back", root_path %>
+<%= link_to "Back", root_path, class: "btn btn-block btn-primary" %>
