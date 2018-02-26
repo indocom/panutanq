@@ -27,15 +27,6 @@ class FeedbacksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /feedbacks/1
-  def update
-    if @feedback.update(feedback_params)
-      redirect_to @feedback, notice: 'Feedback was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   # DELETE /feedbacks/1
   def destroy
     @feedback.destroy
