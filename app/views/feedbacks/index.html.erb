@@ -23,7 +23,6 @@
           <td><%= feedback.message %></td>
           <td>
             <button type="button" class="btn btn-link"><%= link_to 'Show', feedback %></button>
-            <button type="button" class="btn btn-link"><%= link_to 'Edit', edit_feedback_path(feedback) %></button>
             <button type="button" class="btn btn-link"><%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></button>
           </td>
         </tr>

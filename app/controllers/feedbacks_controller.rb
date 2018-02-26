@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: %i[show edit update destroy]
+  before_action :set_feedback, only: %i[show destroy]
 
   # GET /feedbacks
   def index
@@ -15,9 +15,6 @@ class FeedbacksController < ApplicationController
   def new
     @feedback = Feedback.new
   end
-
-  # GET /feedbacks/1/edit
-  def edit; end
 
   # POST /feedbacks
   def create
