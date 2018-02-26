@@ -15,7 +15,8 @@ RSpec.describe 'feedbacks/edit', type: :view do
   it 'renders the edit feedback form' do
     render
 
-    assert_select 'form[action=?][method=?]', feedback_path(@feedback), 'post' do
+    assert_select 'form[action=?][method=?]',
+                  feedback_path(@feedback), 'post' do
       assert_select 'input[name=?]', 'feedback[name]'
 
       assert_select 'input[name=?]', 'feedback[email]'

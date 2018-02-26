@@ -14,11 +14,11 @@
 #
 
 class Feedback < ApplicationRecord
-	validates :name, presence: true, unless: :anonymous?
-	validates :email, presence: true, unless: :anonymous?
-	validates :message, presence: true
+  validates :name, presence: true, unless: :anonymous?
+  validates :email, presence: true, unless: :anonymous?
+  validates :message, presence: true
 
-	def anonymous?
-		anonymous == true
-	end
+  def anonymous?
+    anonymous == true
+  end
 end

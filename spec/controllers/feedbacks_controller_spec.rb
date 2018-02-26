@@ -44,7 +44,6 @@ RSpec.describe FeedbacksController, type: :controller do
 
   describe 'GET #index' do
     it 'returns a success response' do
-      feedback = Feedback.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
@@ -77,19 +76,22 @@ RSpec.describe FeedbacksController, type: :controller do
     context 'with valid params' do
       it 'creates a new Feedback' do
         expect do
-          post :create, params: { feedback: valid_attributes }, session: valid_session
+          post :create, params: { feedback: valid_attributes },
+                        session: valid_session
         end.to change(Feedback, :count).by(1)
       end
 
       it 'redirects to the created feedback' do
-        post :create, params: { feedback: valid_attributes }, session: valid_session
+        post :create, params: { feedback: valid_attributes },
+                      session: valid_session
         expect(response).to redirect_to(Feedback.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { feedback: invalid_attributes }, session: valid_session
+        post :create, params: { feedback: invalid_attributes },
+                      session: valid_session
         expect(response).to be_success
       end
     end
@@ -103,14 +105,18 @@ RSpec.describe FeedbacksController, type: :controller do
 
       it 'updates the requested feedback' do
         feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param, feedback: new_attributes }, session: valid_session
+        put :update, params: { id: feedback.to_param,
+                               feedback: new_attributes },
+                     session: valid_session
         feedback.reload
         skip('Add assertions for updated state')
       end
 
       it 'redirects to the feedback' do
         feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param, feedback: valid_attributes }, session: valid_session
+        put :update, params: { id: feedback.to_param,
+                               feedback: valid_attributes },
+                     session: valid_session
         expect(response).to redirect_to(feedback)
       end
     end
@@ -118,7 +124,9 @@ RSpec.describe FeedbacksController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param, feedback: invalid_attributes }, session: valid_session
+        put :update, params: { id: feedback.to_param,
+                               feedback: invalid_attributes },
+                     session: valid_session
         expect(response).to be_success
       end
     end
@@ -128,7 +136,8 @@ RSpec.describe FeedbacksController, type: :controller do
     it 'destroys the requested feedback' do
       feedback = Feedback.create! valid_attributes
       expect do
-        delete :destroy, params: { id: feedback.to_param }, session: valid_session
+        delete :destroy, params: { id: feedback.to_param },
+                         session: valid_session
       end.to change(Feedback, :count).by(-1)
     end
 
