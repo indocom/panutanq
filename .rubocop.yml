@@ -20,7 +20,7 @@ Layout/EmptyLinesAroundArguments:
 
 Metrics/BlockLength:
   Exclude:
-    - 'test/**/*'
+    - 'spec/**/*'
     - 'app/models/concerns/*'
     - 'app/controllers/concerns/*'
 
