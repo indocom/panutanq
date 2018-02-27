@@ -1,0 +1,37 @@
+.summary {
+  padding: 5em;
+  background-image: url(about-pinus.jpg);
+}
+
+h1 {
+  padding-bottom: .5em;
+  text-transform: uppercase;
+}
+
+.bg-cover {
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.row {
+  padding: 5em 1em;
+}
+
+.history {
+  padding: 5em;
+  background-image: url(history.jpg);
+}

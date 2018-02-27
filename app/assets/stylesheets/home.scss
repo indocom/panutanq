@@ -1,4 +1,73 @@
-// Place all the styles related to the home controller here.
+// Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.about-us, .activities {
+  text-align: center;
+  padding: 10em;
+}
+
+.intro {
+  background-image: url(jumbotron.jpg);
+  padding: 10em;
+  text-align: center;
+}
+
+.bg-cover {
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.display-4 {
+  text-align: center;
+}
+
+.about-us {
+  background-image: url(about-us.jpg);
+}
+
+.caption {
+  text-align: justified;
+  padding: 1em 10em;
+}
+
+.activities {
+  background-image: url(activities.jpg);
+}
+
+.news-title {
+  padding-bottom: 1em;
+}
+
+.latest {
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #bebebe;
+}
+
+@media (min-width: 993px) {
+  .col {
+    column-count: 2;
+  }
+}
+
+footer {
+  padding: 1em 0 2em 0;
+  background: #222;
+  color: #808080;
+  text-align: center;
+}
