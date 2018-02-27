@@ -3,18 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 .jumbotron {
-	text-align: center;
-	padding: 8em 10em;
-	margin: 1em 0em;
+  text-align: center;
+  padding: 8em 10em;
+  margin: 1em 0em;
 }
 
 .jumbotron-fluid {
-	background-image: url(jumbotron.jpg);
-	padding: 10em 10em;
+  background-image: url(jumbotron.jpg);
+  padding: 10em 10em;
 }
 
 .bg-cover {
@@ -37,46 +37,46 @@
 }
 
 .display-4 {
-	text-align: center;
+  text-align: center;
 }
 
 .about-us {
-	background-image: url(about-us.jpg);
+  background-image: url(about-us.jpg);
 }
 
 .btn {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 
 .caption {
-	text-align: justified;
-	padding: 1em 10em;
+  text-align: justified;
+  padding: 1em 10em;
 }
 
 .activities {
-	background-image: url(activities.jpg);
+  background-image: url(activities.jpg);
 }
 
 .news-title {
-	padding-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 .latest {
-	padding: 1em;
-	margin-bottom: 1em;
-	border: 1px solid #bebebe;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #bebebe;
 }
 
 @media (min-width: 993px) {
-	.col {
-		column-count: 2;
-	}
+  .col {
+    column-count: 2;
+  }
 }
 
 footer {
-	padding: 1em 0 2em 0;
-	background: #222;
-	color: #808080;
-	text-align: center;
+  padding: 1em 0 2em 0;
+  background: #222;
+  color: #808080;
+  text-align: center;
 }
 
