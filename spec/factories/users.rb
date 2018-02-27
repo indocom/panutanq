@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -18,6 +17,11 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  fullname               :string
+#  contact_number         :string
+#  major                  :string
+#  graduation             :date
+#  overseas_experience    :string
+#  work_experience        :string
 #
 # Indexes
 #
