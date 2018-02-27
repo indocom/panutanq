@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    authorize! :create, @user, message: 'You are not authorized to create new account'
+    authorize! :create, @user,
+               message: 'You are not authorized to create new account'
   end
 
   def create
