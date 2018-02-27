@@ -1,0 +1,39 @@
+<h1>Edit Roles</h1>
+	<%= form_for @user, url: update_user_info_path do |f| %>
+        <div class="form-group">
+    <%= f.label :fullname %><br />
+    <%= f.text_field :fullname, autofocus: true, autocomplete: "name" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact number" %>
+    Hide?
+    <%= f.check_box(:display_contact_number) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :major %><br />
+    <%= f.text_field :major, autofocus: true, autocomplete: "major" %>
+    Hide?
+    <%= f.check_box(:display_major) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :graduation %><br />
+    <%= f.date_field :graduation, autofocus: true, autocomplete: "name" %>
+    Hide?
+    <%= f.check_box(:display_graduation) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :overseas_experience %><br />
+    <%= f.text_field :overseas_experience, autofocus: true, autocomplete: "name" %>
+    Hide?
+    <%= f.check_box(:display_overseas_experience) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :work_experience %><br />
+    <%= f.text_field :work_experience, autofocus: true, autocomplete: "name" %>
+    Hide?
+    <%= f.check_box(:display_work_experience) %>
+  </div>
+  <%= f.submit 'Save' %>
+  <% end %>
+   

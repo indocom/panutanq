@@ -1,5 +1,5 @@
 <h1>Edit Roles</h1>
-	<%= form_for @user, url: edit_user_authority_path do |f| %>
+	<%= form_for @user, url: update_user_role_path do |f| %>
         <%= f.label(:event_manager) do %>
           Event Manager:
           <%= hidden_field_tag(:event_manager, 0) %>

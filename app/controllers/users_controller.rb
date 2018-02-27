@@ -22,25 +22,26 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def edit_personal_info
     @user = User.find(params[:id])
   end
 
-  def update
-    user = User.find(params[:id])
+  def edit_role
+    @user = User.find(params[:id])
+  end
 
-    if user.update(user_params)
+  def update_personal_info
+    user = User.find(params[:id])
+    if user.update(user_info_params)
       redirect_to root_path
     else
-      render :edit
+      render :edit_personal_info
     end
   end
 
-  def authorize
+  def update_role
     user = User.find(params[:id])
-    %i[event_manager].each do |role|
-      checkbox_for(user, role)
-    end
+    change_role(user, :event_manager)
     redirect_to users_path
   end
 
@@ -53,7 +54,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(:fullname, :email, :password)
   end
 
-  private def checkbox_for(user, role)
+  private def user_info_params
+    params.require(:user).permit(
+      :fullname, :contact_number, :major, :graduation, :overseas_experience,
+       :work_experience, :display_contact_number, :display_major,
+       :display_graduation, :display_overseas_experience, :display_work_experience
+      )
+  end
+
+  private def change_role(user, role)
     if params[role] == '1'
       user.add_role(role)
     elsif params[role] == '0'
