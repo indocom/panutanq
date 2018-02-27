@@ -16,7 +16,7 @@
         </div>
 
         <% if devise_mapping.rememberable? -%>
-        
+
           <div class="form-group">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
@@ -29,7 +29,6 @@
       <% end %>
       <br />
       <%= render "devise/shared/links" %>
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
     </div>
   </div>
 </div>

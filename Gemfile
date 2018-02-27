@@ -121,6 +121,8 @@ gem 'rack-protection'
 # BCrypt hashing
 gem 'bcrypt'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   # Security checkup
   gem 'brakeman'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227083647) do
+ActiveRecord::Schema.define(version: 20180331144949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 20180227083647) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
+    t.string   "name"
     t.string   "email"
+    t.boolean  "anonymous",  :default=>true
     t.text     "message"
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
@@ -87,6 +89,8 @@ ActiveRecord::Schema.define(version: 20180227083647) do
     t.boolean  "display_graduation"
     t.boolean  "display_overseas_experience"
     t.boolean  "display_work_experience"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
