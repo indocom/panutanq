@@ -54,7 +54,11 @@
 
             <li class="nav-item pl-4">
               <button type="button" class="btn-outline-info">
-                <a class="nav-link" href="#">Sign in</a>
+                <% if current_user %>
+                  <%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %>
+                <% else %>
+                  <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+                <% end %>
               </button>
             </li>
 

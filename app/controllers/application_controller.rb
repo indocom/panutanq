@@ -2,7 +2,6 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
   # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
