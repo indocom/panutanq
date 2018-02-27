@@ -11,4 +11,4 @@
 #                          { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: 'test-user')
+User.create(email: 'website.pinus@gmail.com', password: 'admin123')
