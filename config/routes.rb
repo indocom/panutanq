@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   # post 'create_user' => 'users#create', :as => 'create_user'
   get '/users/:id/edit_role' => 'users#edit_role', :as => 'edit_user_role'
   get '/users/:id/edit_info' => 'users#edit_personal_info',
-   :as => 'edit_user_info'
-  patch 'edit_info/:id' => 'users#update_personal_info', :as => 'update_user_info'
+      :as => 'edit_user_info'
+  patch 'edit_info/:id' => 'users#update_personal_info',
+        :as => 'update_user_info'
   patch 'edit_role/:id' => 'users#update_role', :as => 'update_user_role'
 end

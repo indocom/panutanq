@@ -57,9 +57,10 @@ class UsersController < ApplicationController
   private def user_info_params
     params.require(:user).permit(
       :fullname, :contact_number, :major, :graduation, :overseas_experience,
-       :work_experience, :display_contact_number, :display_major,
-       :display_graduation, :display_overseas_experience, :display_work_experience
-      )
+      :work_experience, :display_contact_number, :display_major,
+      :display_graduation, :display_overseas_experience,
+      :display_work_experience
+    )
   end
 
   private def change_role(user, role)
