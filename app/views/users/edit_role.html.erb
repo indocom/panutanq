@@ -1,0 +1,11 @@
+<h1>Edit Roles</h1>
+	<%= form_for @user, url: update_user_role_path do |f| %>
+        <%= f.label(:event_manager) do %>
+          Event Manager:
+          <%= hidden_field_tag(:event_manager, 0) %>
+          <%= check_box_tag(:event_manager, 1, @user.has_role?(:event_manager)) %>
+          <br>
+          <%= f.submit 'Save' %>
+        <% end %>
+    <% end %>
+   

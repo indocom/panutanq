@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131122644) do
+ActiveRecord::Schema.define(version: 20180227083647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,48 @@ ActiveRecord::Schema.define(version: 20180131122644) do
     t.bigint   "event_id",    :index=>{:name=>"index_posts_on_event_id"}
     t.datetime "created_at",  :null=>false
     t.datetime "updated_at",  :null=>false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",          :index=>{:name=>"index_roles_on_name_and_resource_type_and_resource_id", :with=>["resource_type", "resource_id"]}
+    t.string   "resource_type", :index=>{:name=>"index_roles_on_resource_type_and_resource_id", :with=>["resource_id"]}
+    t.bigint   "resource_id"
+    t.datetime "created_at",    :null=>false
+    t.datetime "updated_at",    :null=>false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                       :default=>"", :null=>false, :index=>{:name=>"index_users_on_email", :unique=>true}
+    t.string   "encrypted_password",          :default=>"", :null=>false
+    t.string   "reset_password_token",        :index=>{:name=>"index_users_on_reset_password_token", :unique=>true}
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",               :default=>0, :null=>false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                  :null=>false
+    t.datetime "updated_at",                  :null=>false
+    t.string   "fullname"
+    t.string   "contact_number"
+    t.string   "major"
+    t.date     "graduation"
+    t.string   "overseas_experience"
+    t.string   "work_experience"
+    t.boolean  "display_email"
+    t.boolean  "display_contact_number"
+    t.boolean  "display_major"
+    t.boolean  "display_graduation"
+    t.boolean  "display_overseas_experience"
+    t.boolean  "display_work_experience"
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id", :index=>{:name=>"index_users_roles_on_user_id"}
+    t.bigint "role_id", :index=>{:name=>"index_users_roles_on_role_id"}
+
+    t.index ["user_id", "role_id"], :name=>"index_users_roles_on_user_id_and_role_id"
   end
 
   add_foreign_key "events", "categories"

@@ -308,6 +308,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt
   bootstrap
   brakeman
   browser_details
