@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211062812) do
+ActiveRecord::Schema.define(version: 20180217124841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20180211062812) do
     t.datetime "updated_at",  :null=>false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",          :index=>{:name=>"index_roles_on_name_and_resource_type_and_resource_id", :with=>["resource_type", "resource_id"]}
+    t.string   "resource_type", :index=>{:name=>"index_roles_on_resource_type_and_resource_id", :with=>["resource_id"]}
+    t.bigint   "resource_id"
+    t.datetime "created_at",    :null=>false
+    t.datetime "updated_at",    :null=>false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  :default=>"", :null=>false, :index=>{:name=>"index_users_on_email", :unique=>true}
     t.string   "encrypted_password",     :default=>"", :null=>false
@@ -67,7 +75,14 @@ ActiveRecord::Schema.define(version: 20180211062812) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",             :null=>false
     t.datetime "updated_at",             :null=>false
-    t.boolean  "is_admin",               :default=>false
+    t.string   "fullname"
+  end
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id", :index=>{:name=>"index_users_roles_on_user_id"}
+    t.bigint "role_id", :index=>{:name=>"index_users_roles_on_role_id"}
+
+    t.index ["user_id", "role_id"], :name=>"index_users_roles_on_user_id_and_role_id"
   end
 
   add_foreign_key "events", "categories"

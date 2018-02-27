@@ -17,7 +17,7 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  is_admin               :boolean          default(FALSE)
+#  fullname               :string
 #
 # Indexes
 #
@@ -26,13 +26,19 @@
 #
 
 class User < ApplicationRecord
+  rolify
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
-
   def password=(password)
     @password = password
     self.encrypted_password = BCrypt::Password.create(password)
+  end
+
+  def all_roles
+    roles.pluck(:name).join(', ') if roles.pluck(:name).join(', ') != ''
   end
 end
