@@ -97,7 +97,7 @@ RSpec.describe UsersController, type: :controller do
       post :update_personal_info, params: {
         id: user.id, user: { fullname: 'test' }
       }
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(dashboard_path)
     end
 
     it 'returns http forbidden with logged in user changing other user' do
