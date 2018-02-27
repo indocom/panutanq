@@ -11,6 +11,7 @@
       </div>
       <% if current_user.has_role? :admin %>
       <div class="col-12">
+        <br />
         <%=  link_to "Manage accounts", users_path, class: "btn btn-warning btn-block" %>
       </div>
       <% end %>

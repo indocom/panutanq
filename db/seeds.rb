@@ -14,6 +14,6 @@
 admin = User.create(fullname: 'admin',
                     email: 'website.pinus@gmail.com', password: 'admin123')
 
-admin.add_role :master
+admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
