@@ -1,9 +1,9 @@
-.vision {
-  padding: 5em 3em;
+.summary {
+  padding: 5em 5em;
   background-image: url(about-pinus.jpg);
 }
 
-.h1 {
+h1 {
   padding-bottom: 1em;
   text-transform: uppercase;
 }
@@ -25,4 +25,13 @@
   bottom: 0;
   right: 0;
   z-index: -1;
+}
+
+.row {
+  padding: 5em 1em;
+}
+
+.history {
+  padding: 5em 5em;
+  background-image: url(history.jpg);
 }
