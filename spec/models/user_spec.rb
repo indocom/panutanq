@@ -39,5 +39,19 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves given a valid User' do
+    user = User.new(email: 'test@abc.com', password: 'test123')
+    expect(user.save).to be true
+  end
+
+  it 'does not save if email is empty' do
+    user = User.new(email: '', password: 'test123')
+    expect(user.save).to be false
+  end
+
+  it 'does not save if password is not a combination of
+  letters and numbers' do
+    user = User.new(email: 'test@abc.com', password: 'test123')
+    expect(user.save).to be true
+  end
 end

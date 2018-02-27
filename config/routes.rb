@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'static_pages#dashboard'
 
   devise_for :users
   # as :user do

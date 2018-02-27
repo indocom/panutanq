@@ -1,8 +1,8 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
-      <h1>Manage Accounts</h1>
-      <h3>Your Account</h3>
+      <h1>List of PINUSians</h1>
+      <h3>You</h3>
       <table class="table">
         <tr>
           <th scope="row">Full Name</th>
@@ -17,7 +17,7 @@
           <td><%= current_user.all_roles || '-' %></td>
         </tr>
       </table>
-      <h3>Other Accounts</h3>
+      <h3>Other PINUSians</h3>
       <table class="table">
         <thead>
           <tr>
@@ -34,12 +34,12 @@
                 <td><%= user.fullname %>
             		<td><%= user.email %>
             		<td><%= user.all_roles || '-' %>
-            		<% if current_user.has_role? :admin %>
-            		<td><%= link_to 'Edit User', edit_user_role_path(id: user.id), class: "btn btn-warning btn-sm"  %>
+            		<% #if current_user.has_role? :admin %>
+            		<td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "btn btn-warning btn-sm"  %>
       	    		<%= link_to 'Delete', user_path(id: user.id), data: { 	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
       	        	<% end %>
                 </tr>
-            	<% end %>
+            	<% #end %>
           <% end %>
         </tbody>
         </table>

@@ -12,11 +12,9 @@
       <div class="col-6">
         <%= link_to "Edit Personal Information", edit_user_info_path(id: current_user.id), class: "btn btn-primary btn-block" %>
       </div>
-      <% if current_user.has_role? :admin %>
       <div class="col-6">
-        <%=  link_to "Manage accounts", users_path, class: "btn btn-warning btn-block" %>
+        <%=  link_to "List of PINUSians", users_path, class: "btn btn-warning btn-block" %>
       </div>
-      <% end %>
       </div>
     </div>
   </div>

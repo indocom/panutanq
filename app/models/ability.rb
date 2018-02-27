@@ -3,16 +3,23 @@
 class Ability
   include CanCan::Ability
 
+  # rubocop:disable Metrics/MethodLength
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
+    if user.present?
+      can :manage, User, id: user.id
+      cannot :edit_role, User
+    end
+
     user ||= User.new # guest user (not logged in)
+    can %i[read create], User
+    can :read, :events
+
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :event_manager
-      can :manage, :events
-    else
-      can :read, :all
+      can :manage, Event
     end
     #
     # The first argument to `can` is the action you are giving the user
@@ -33,4 +40,5 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end
+  # rubocop:enable Metrics/MethodLength
 end
