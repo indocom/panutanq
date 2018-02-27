@@ -40,22 +40,8 @@ class UsersController < ApplicationController
 
   def authorize
     user = User.find(params[:id])
-    if params[:admin] == '1'
-      user.add_role(:admin)
-    elsif params[:admin] == '0'
-      user.remove_role(:admin)
-    end
-
-    if params[:manager] == '1'
-      user.add_role(:manager)
-    elsif params[:manager] == '0'
-      user.remove_role(:manager)
-    end
-
-    if params[:content_manager] == '1'
-      user.add_role(:content_manager)
-    elsif params[:content_manager] == '0'
-      user.remove_role(:content_manager)
+    %i[admin manager content_manager].each do |role|
+      checkbox_for(user, role)
     end
     redirect_to users_path
   end
@@ -67,5 +53,13 @@ class UsersController < ApplicationController
 
   private def user_params
     params.require(:user).permit(:fullname, :email, :password)
+  end
+
+  private def checkbox_for(user, role)
+    if params[role] == '1'
+      user.add_role(role)
+    elsif params[role] == '0'
+      user.remove_role(role)
+    end
   end
 end

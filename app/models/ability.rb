@@ -8,7 +8,7 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
     if user.has_role? :master
-      can %i[create update delete edit read], :all
+      can :manage, :all
     else
       can :read, :all
     end
