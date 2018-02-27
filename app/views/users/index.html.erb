@@ -6,7 +6,7 @@ Full Name: <%= current_user.fullname %></td>
 Email: <%= current_user.email %></td>
 </p>
 <p>
-Roles: <%= current_user.roles.pluck(:name).join(", ") %></td>
+Roles: <%= current_user.all_roles || '-' %></td>
 </p>
 
 <h3>Other Accounts</h3>
@@ -14,8 +14,8 @@ Roles: <%= current_user.roles.pluck(:name).join(", ") %></td>
     	<% if user != current_user %>
             <br>Full Name: <%= user.fullname %>
         		<br>Email: <%= user.email %>
-        		<br>Roles: <%= user.all_roles || 'None' %>
-        		<% if current_user.has_role? :master %>
+        		<br>Roles: <%= user.all_roles || '-' %>
+        		<% if current_user.has_role? :admin %>
         		<br><%= link_to 'Edit User', edit_user_path(id: user.id), class: "btn btn-warning btn-sm"  %>
 	        		<%= link_to 'Delete', user_path(id: user.id), data: { 	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
 	        	<% end %>

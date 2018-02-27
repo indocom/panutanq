@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  load_and_authorize_resource
-
   def index
     @users = User.all
   end
@@ -40,7 +38,7 @@ class UsersController < ApplicationController
 
   def authorize
     user = User.find(params[:id])
-    %i[admin manager content_manager].each do |role|
+    %i[event_manager].each do |role|
       checkbox_for(user, role)
     end
     redirect_to users_path
