@@ -1,36 +1,36 @@
 <div class="jumbotron">
 <div class="row">
-	<div class="col-xs-12 col-md-4 offset-md-4">
+  <div class="col-xs-12 col-md-4 offset-md-4">
 <h1>Create New User</h1>
 
 <%= form_for User.new, url:create_user_path do |f| %>
-	<div class="form-group">
-		<p>
-		<%= f.label :fullname  %>
-		<%= f.text_field :fullname, class: "form-control" %>
-		</p>
-	</div>
-	<div class="form-group">
-		<p>
-		<%= f.label :email  %>
-		<%= f.text_field :email, class: "form-control" %>
-		</p>
-	</div>
-	<div class="form-group">
-		<p>
-		<%= f.label :password %>
-    	<% if @minimum_password_length %>
-    	<em>(<%= @minimum_password_length %> characters minimum)</em>
-    	<% end %><br />
-    	<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-		</p>
-	</div>
-	<div class="form-group">
-		<p>
-		<%= f.label :password_confirmation %><br />
-    	<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-		</p>
-	</div>
-		<%= f.submit 'Create', class: "btn btn-outline-primary btn-block" %><br />
-		<%= link_to 'Home', root_path %>
+  <div class="form-group">
+    <p>
+    <%= f.label :fullname  %>
+    <%= f.text_field :fullname, class: "form-control" %>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+    <%= f.label :email  %>
+    <%= f.text_field :email, class: "form-control" %>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+    <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </p>
+  </div>
+  <div class="form-group">
+    <p>
+    <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </p>
+  </div>
+  <%= f.submit 'Create', class: "btn btn-outline-primary btn-block" %><br />
+  <%= link_to 'Home', root_path %>
 <% end %>
