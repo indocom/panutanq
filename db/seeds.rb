@@ -11,4 +11,8 @@
 #                          { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: 'website.pinus@gmail.com', password: 'admin123')
+admin = User.create(fullname: 'admin', email: 'website.pinus@gmail.com', password: 'admin123')
+
+admin.add_role :master
+
+test = User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
