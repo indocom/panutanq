@@ -2,19 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container {
-  max-width: 100%;
-}
-
-.jumbotron {
+.about-us, .activities {
   text-align: center;
-  padding: 8em 10em;
-  margin: 1em 0em;
+  padding: 10em 10em;
 }
 
-.jumbotron-fluid {
+.intro {
   background-image: url(jumbotron.jpg);
   padding: 10em 10em;
+  text-align: center;
 }
 
 .bg-cover {
