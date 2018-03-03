@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
-@import "variables";
+@import 'variables';
 
 * {
   box-sizing: border-box;
@@ -10,23 +10,22 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  // background: purple;
 }
 
-#sideMenu {
-  background: $darkgrey
-  max-width: 280px
+.sideMenu {
+  background: $darkgrey;
+  max-width: 280px;
 
-  nav {
+  div {
     padding-top: 100px;
 
     a{
       display: block;
-      color: $darkgrey
+      color: $white;
       text-decoration: none;
       padding: 15px 30px;
 
-      $.activate  {
+      &.activate  {
         background: $darkgrey;
       }
     }
