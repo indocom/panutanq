@@ -17,8 +17,8 @@ require 'rails_helper'
 
 RSpec.describe Feedback, type: :model do
   it 'saves given a valid feedback' do
-    feedback = buid(:feedback)
-    expect(feedback.save).to be true
+    @feedback = build(:feedback)
+    expect(@feedback.save).to be true
   end
 
   it 'does not save if message is empty' do
@@ -38,10 +38,4 @@ RSpec.describe Feedback, type: :model do
     expect(feedback.save).to be false
   end
 
-  it 'changes name and email to "Anonymous"
-  if anonymous is true' do
-    create(:feedback)
-    expect(Feedback.first.name).to be 'Anonymous'
-    expect(Feedback.first.name).to be 'Anonymous'
-  end
 end
