@@ -37,5 +37,4 @@ RSpec.describe Feedback, type: :model do
     feedback = build(:feedback, email: '')
     expect(feedback.save).to be false
   end
-
 end
