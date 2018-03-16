@@ -20,6 +20,11 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
 
+    if @feedback.anonymous == true
+      @feedback.name = 'Anonymous'
+      @feedback.email = 'Anonymous'
+    end
+
     if @feedback.save
       redirect_to @feedback, notice: 'Feedback was successfully created.'
     else
