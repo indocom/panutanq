@@ -17,7 +17,9 @@ admin = User.create(fullname: 'admin',
 admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
+
 category = Category.create(name: 'default')
+
 Event.create(name: 'NUANSA', category: category)
 Event.create(name: 'Misi Kami Peduli', category: category)
 Event.create(name: 'Orientation', category: category)

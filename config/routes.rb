@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'home', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
+  get '/events/index', to: 'events#index'
 
   devise_for :users
   # as :user do
