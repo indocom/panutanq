@@ -10,23 +10,23 @@ check box checked. Your particulars will, by default, be <strong>Anonymous</stro
 
 <%= form_for @feedback do |f| %>
 <p>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 </p>
 <p>
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
 </p>
 <p>
-	<%= f.label :anonymous %>
-	<%= f.check_box :anonymous %>
+  <%= f.label :anonymous %>
+  <%= f.check_box :anonymous %>
 </p>
 <p>
-	<%= f.label	:message %>
-	<%= f.text_area :message %>
+  <%= f.label	:message %>
+  <%= f.text_area :message %>
 </p>
 
-	<%= f.submit 'Submit Feedback' %>
+  <%= f.submit 'Submit Feedback' %>
 <% end %>
 
 <%= link_to 'Back', feedbacks_path %>
