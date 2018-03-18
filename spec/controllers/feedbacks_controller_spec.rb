@@ -26,48 +26,23 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe FeedbacksController, type: :controller do
-  # This should return the minimal set of attributes required to create a valid
-  # Feedback. As you add validations to Feedback, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
-
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # FeedbacksController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
   describe 'GET #index' do
     it 'returns a success response' do
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(response).to be_success
     end
   end
 
   describe 'GET #show' do
     it 'returns a success response' do
-      feedback = Feedback.create! valid_attributes
-      get :show, params: { id: feedback.to_param }, session: valid_session
+      feedback = create(:feedback)
+      get :show, params: { id: feedback.id }
       expect(response).to be_success
     end
   end
 
   describe 'GET #new' do
     it 'returns a success response' do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe 'GET #edit' do
-    it 'returns a success response' do
-      feedback = Feedback.create! valid_attributes
-      get :edit, params: { id: feedback.to_param }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -76,57 +51,19 @@ RSpec.describe FeedbacksController, type: :controller do
     context 'with valid params' do
       it 'creates a new Feedback' do
         expect do
-          post :create, params: { feedback: valid_attributes },
-                        session: valid_session
+          post :create, params: { feedback: attributes_for(:feedback) }
         end.to change(Feedback, :count).by(1)
       end
 
       it 'redirects to the created feedback' do
-        post :create, params: { feedback: valid_attributes },
-                      session: valid_session
+        post :create, params: { feedback: attributes_for(:feedback) }
         expect(response).to redirect_to(Feedback.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { feedback: invalid_attributes },
-                      session: valid_session
-        expect(response).to be_success
-      end
-    end
-  end
-
-  describe 'PUT #update' do
-    context 'with valid params' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested feedback' do
-        feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param,
-                               feedback: new_attributes },
-                     session: valid_session
-        feedback.reload
-        skip('Add assertions for updated state')
-      end
-
-      it 'redirects to the feedback' do
-        feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param,
-                               feedback: valid_attributes },
-                     session: valid_session
-        expect(response).to redirect_to(feedback)
-      end
-    end
-
-    context 'with invalid params' do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        feedback = Feedback.create! valid_attributes
-        put :update, params: { id: feedback.to_param,
-                               feedback: invalid_attributes },
-                     session: valid_session
+        post :create, params: { feedback: attributes_for(:feedback, name: nil) }
         expect(response).to be_success
       end
     end
@@ -134,16 +71,15 @@ RSpec.describe FeedbacksController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested feedback' do
-      feedback = Feedback.create! valid_attributes
+      feedback = create(:feedback)
       expect do
-        delete :destroy, params: { id: feedback.to_param },
-                         session: valid_session
+        delete :destroy, params: { id: feedback.id }
       end.to change(Feedback, :count).by(-1)
     end
 
     it 'redirects to the feedbacks list' do
-      feedback = Feedback.create! valid_attributes
-      delete :destroy, params: { id: feedback.to_param }, session: valid_session
+      feedback = create(:feedback)
+      delete :destroy, params: { id: feedback.id }
       expect(response).to redirect_to(feedbacks_url)
     end
   end

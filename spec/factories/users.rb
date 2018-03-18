@@ -37,6 +37,13 @@
 #
 
 FactoryBot.define do
+  sequence :email do |n|
+    "calvin#{n}@futures.com"
+  end
+
   factory :user do
+    email
+    fullname 'Calvin Tantio'
+    password '123456'
   end
 end
