@@ -17,3 +17,6 @@ admin = User.create(fullname: 'admin',
 admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
+
+Event.create(name: 'NUANSA')
+Event.create(name: 'Misi Kami Peduli')
