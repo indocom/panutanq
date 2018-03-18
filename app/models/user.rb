@@ -50,6 +50,10 @@ class User < ApplicationRecord
   end
 
   def all_roles
-    roles.pluck(:name).join(', ') if roles.pluck(:name).join(', ') != ''
+    role_names = []
+    role_names.push('Administrator') if has_role? :admin
+    role_names.push('Event Manager') if has_role? :event_manager
+    role_names.join(', ')
+    # roles.pluck(:name).join(', ') if roles.pluck(:name).join(', ') != ''
   end
 end

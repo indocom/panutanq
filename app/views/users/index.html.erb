@@ -24,28 +24,30 @@
             <th scope="col">Full Name</th>
             <th scope="col">Email</th>
             <th scope="col">Roles</th>
-            <th scope="col">Action</th>
+
+            <% if current_user.has_role? :admin %>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
-        <% @users.each do |user| %>
-          <% if user != current_user %>
-            <tr>
-                <td><%= user.fullname %>
-            		<td><%= user.email %>
-            		<td><%= user.all_roles || '-' %>
-            		<% #if current_user.has_role? :admin %>
-            		<td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "btn btn-warning btn-sm"  %>
-      	    		<%= link_to 'Delete', user_path(id: user.id), data: { 	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %>
-      	        	<% end %>
-                </tr>
-            	<% #end %>
+          <% @users.each do |user| %>
+            <% if user != current_user %>
+              <tr>
+                <td><%= user.fullname %></td>
+                <td><%= user.email %></td>
+                <td><%= user.all_roles || '-' %></td>
+                <% if current_user.has_role? :admin %>
+                  <td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "btn btn-warning btn-sm" %></td>
+                  <td><%= link_to 'Delete', user_path(id: user.id), data: {	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %></td>
+                <% end %>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
-        </table>
-    <br>
-    <br>
-    <%= link_to "Back", dashboard_path, class: "btn-primary btn btn-block" %>
-  </div>
+      </table>
+      <%= link_to "Back", dashboard_path, class: "btn-primary btn btn-block" %>
+    </div>
   </div>
 </div>
