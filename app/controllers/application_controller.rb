@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_account_update_params, only: [:update]
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
+  before_action :set_events
+
   # Catch CanCan:AccessDenied exception
   rescue_from CanCan::AccessDenied do |_exception|
     render file:
@@ -26,5 +28,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(
       :account_update, keys: %i[fullname]
     )
+  end
+
+  private
+
+  def set_events
+    @events = Event.all
   end
 end

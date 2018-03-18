@@ -35,11 +35,9 @@
                 Events
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">NUANSA</a>
-                <a class="dropdown-item" href="#">Misi Kami Peduli</a>
-                <a class="dropdown-item" href="#">Orientation</a>
-                <a class="dropdown-item" href="#">Nusantaraku</a>
-                <a class="dropdown-item" href="#">Orientation</a>
+                <% @events.each do |event| %>
+                  <a class="dropdown-item" href="#"><%= event.name %></a>
+                <% end %>
               </div>
             </li>
 

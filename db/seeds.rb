@@ -17,6 +17,9 @@ admin = User.create(fullname: 'admin',
 admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
-
-Event.create(name: 'NUANSA')
-Event.create(name: 'Misi Kami Peduli')
+category = Category.create(name: 'default')
+Event.create(name: 'NUANSA', category: category)
+Event.create(name: 'Misi Kami Peduli', category: category)
+Event.create(name: 'Orientation', category: category)
+Event.create(name: 'POPI', category: category)
+Event.create(name: 'Nusantaraku', category: category)
