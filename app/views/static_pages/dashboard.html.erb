@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dashboard</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  </head>
 
   <body>
-    <section class="sideMenu">
-      <div>
-        <a href="#" class="active"><i class="fa fa-home"></i> Dashboard </a>
-        <a href="#"><i class="fa fa-calendar"></i> Events </a>
-        <a href="/users"><i class="fa fa-user"></i> User </a>
-        <a href="/users/edit"><i class="fa fa-cog"></i> Setting </a>
-        <a href="/users/sign_out"><i class="fa fa-sign-out"></i> Sign Out </a>
+    <div class="sideMenu">
+      <div class="Welcome">
+        Hi, <%= current_user.fullname %>!
       </div>
-    </section>
+      <span class="InsideSideMenu">
+        <a href="#" <i class="fa fa-home"></i> Dashboard </a>
+      </span>
+      <div class="InsideSideMenu">
+        <a href="#" <i class="fa fa-calendar"></i> Events </a>
+      </div>
+      <div class="InsideSideMenu">
+        <%=  link_to "PINUSians", users_path, class: "fa fa-user" %>
+      </div>
+      <div class="InsideSideMenu">
+        <%= link_to "Profile", edit_user_info_path(id: current_user.id), class: "fa fa-user" %>
+      </div>
+      <div class="InsideSideMenu">
+        <%= link_to "Settings", edit_user_registration_path, class: "fa fa-cog" %>
+      </div>
+      <div class="InsideSideMenu">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %>
+      </div>
+    </div>
   </body>
-
-  <header>
-    <div class=search>
-      <i class="fa fa-search" aria-hidden="true"> </i>
-      <input type="text" name="" value="">
-    </div>
-    <div class=user_field>
-      <a href="#" class="notification">
-        <i class="fa fa-bell-o" aria-hidden="true"></i>
-        <span class="circle">2</span> </a>
-      <a href="#">
-        <div class"user-img"> </div>
-        user image  </a>
-    </div>
-
-
-  </header>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="jumbotron">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 offset-md-2">
-      <h1 class="text-center display-1">Welcome, <%= current_user.fullname %></h1>
-      <div class="row">
-      <div class="col-6">
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-block" %>
-      </div>
-      <div class="col-6">
-        <%= link_to "Account settings", edit_user_registration_path, class: "btn btn-primary btn-block" %>
-      </div>
-      <div class="col-6">
-        <%= link_to "Edit Personal Information", edit_user_info_path(id: current_user.id), class: "btn btn-primary btn-block" %>
-      </div>
-      <div class="col-6">
-        <%=  link_to "List of PINUSians", users_path, class: "btn btn-warning btn-block" %>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,40 +1,38 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @import 'variables';
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
 .sideMenu {
   padding-top: 120px;
   background: $darkgrey;
-  max-width: 280px;
+  max-width: 250px;
   position: absolute;
-  width: 250px;
+  width: 280px;
   top:0;
   bottom: 0;
+}
 
-  div {
-    padding-top: 10px;
+.Welcome{
+  display: block;
+  color: $white;
+  text-decoration: none;
+  padding: 15px 40px;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.4rem;
+}
 
-    a{
-      display: block;
-      color: $white;
-      text-decoration: none;
-      padding: 15px 30px;
-      transition: all 0.2s ease-in-out;
+.InsideSideMenu{
+  display: inline-block;
+  color: $white;
+  text-decoration: none;
+  padding: 15px 40px;
+  transition: all 0.2s ease-in-out;
 
       &:hover{
         background:$darkpurple;
         border-left: 5px solid $niceblue;
-        padding: 15px 30px 15px 25px;
+        width: 250px;
 
         .fa {
           color: $niceblue;
@@ -42,11 +40,11 @@ body {
       }
 
       .fa {
+        display:inline-block;
         color: $white;
         font-size: 1.4rem;
-        margin-right: 0.8rem;
-        display: inline-block;
-        width: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
       }
 
       &.active  {
@@ -59,8 +57,8 @@ body {
         }
       }
     }
-  }
-}
+
+
 
 
 header{
