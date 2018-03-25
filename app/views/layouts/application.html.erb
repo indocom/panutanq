@@ -36,12 +36,12 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% @events.each do |event| %>
-                  <a class="dropdown-item" href="#"><%= event.name %></a>
+                  <%= link_to event.name, show_event_path(event.id), class: "dropdown-item" %>
                 <% end %>
               </div>
             </li>
 
-            <!--about--> 
+            <!--about-->
             <li class="nav-item pl-4">
               <%= link_to 'About', about_path, class: 'nav-link' %>
             </li>
