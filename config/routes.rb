@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static_pages#about'
 
   get '/events', to: 'events#index'
-  get '/event/:id', to: 'events#show'
+  get '/events/:id' => 'events#show', :as => 'show_event'
 
   devise_for :users
   # as :user do
