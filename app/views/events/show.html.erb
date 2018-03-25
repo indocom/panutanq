@@ -2,16 +2,17 @@
 
   <div class="row">
     <div class="col-3">
+      <h3>Events</h3>
       <ul class="list-unstyled">
-        <li><a href="">Lorem</a></li>
-        <li><a href="">Lorem</a></li>
-        <li><a href="">Lorem</a></li>
+        <% @events.each do |event| %>
+          <li><%= link_to event.name, show_event_path(event.id) %></li>
+        <% end %>
       </ul>
     </div>
 
     <div class="col-9">
       <h1><%= @event.name %></h1>
-      
+
       <div class="event-time text-muted">
         <%= @event.start_time %>
         to
