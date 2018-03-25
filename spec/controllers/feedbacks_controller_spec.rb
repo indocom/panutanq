@@ -28,6 +28,11 @@ require 'rails_helper'
 RSpec.describe FeedbacksController, type: :controller do
   describe 'GET #index' do
     it 'returns a success response' do
+      user = create(:user)
+      user.add_role :admin
+
+      sign_in user
+
       get :index, params: {}
       expect(response).to be_success
     end
@@ -36,6 +41,12 @@ RSpec.describe FeedbacksController, type: :controller do
   describe 'GET #show' do
     it 'returns a success response' do
       feedback = create(:feedback)
+
+      user = create(:user)
+      user.add_role :admin
+
+      sign_in user
+
       get :show, params: { id: feedback.id }
       expect(response).to be_success
     end
@@ -72,6 +83,12 @@ RSpec.describe FeedbacksController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the requested feedback' do
       feedback = create(:feedback)
+
+      user = create(:user)
+      user.add_role :admin
+
+      sign_in user
+
       expect do
         delete :destroy, params: { id: feedback.id }
       end.to change(Feedback, :count).by(-1)
@@ -79,6 +96,12 @@ RSpec.describe FeedbacksController, type: :controller do
 
     it 'redirects to the feedbacks list' do
       feedback = create(:feedback)
+
+      user = create(:user)
+      user.add_role :admin
+
+      sign_in user
+
       delete :destroy, params: { id: feedback.id }
       expect(response).to redirect_to(feedbacks_url)
     end
