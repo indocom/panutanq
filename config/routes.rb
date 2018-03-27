@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+
 Rails.application.routes.draw do
+  resources :static_pages
   root 'static_pages#home'
   get 'home', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   #  put 'users' => 'devise/registrations#update', :as => 'user_registration'
   # end
   resources :users, except: %i[create new edit]
+
 
   # post 'create_user' => 'users#create', :as => 'create_user'
 

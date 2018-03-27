@@ -3,6 +3,10 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
+  def dashboard
+    @users = User.all
+  end
+
   def index
     @users = User.all
   end

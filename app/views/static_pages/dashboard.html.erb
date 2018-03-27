@@ -7,8 +7,8 @@
       <span class="InsideSideMenu">
         <a href="#" <i class="fa fa-home"></i> Dashboard </a>
       </span>
-      <div class="InsideSideMenu">
-        <a href="#" <i class="fa fa-calendar"></i> Events </a>
+      <div class="InsideSideMenu" class="dropdown-toggle">
+        <a href="#" <i class="fa fa-calendar"></i> Events <i class="fa fa-caret-down"></i> </a>
       </div>
       <div class="InsideSideMenu">
         <%=  link_to "PINUSians", users_path, class: "fa fa-user" %>
@@ -24,3 +24,29 @@
       </div>
     </div>
   </body>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Roles</th>
+      <% if current_user.has_role? :admin %>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.fullname %></td>
+          <td><%= user.email %></td>
+          <td><%= user.all_roles || '-' %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
