@@ -57,7 +57,7 @@
               <%= link_to 'For Freshmen', freshmen_path, class: 'nav-link' %>
             </li>
             <li class="nav-item pl-4">
-              <% if (current_user != nil) && (current_user.has_role? :admin) %>
+              <% if (current_user&.has_role? :admin) %>
                 <%= link_to 'See Feedback', feedbacks_path ,class: 'nav-link' %>
               <% else %>
                 <%= link_to 'Feedback', new_feedback_path ,class: 'nav-link' %>
