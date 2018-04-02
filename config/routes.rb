@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'home', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
 
-  get '/events', to: 'events#index'
-  get '/events/:id' => 'events#show', :as => 'show_event'
+  resources :events
 
   devise_for :users
   # as :user do

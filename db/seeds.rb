@@ -20,6 +20,8 @@ User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
 
 category = Category.create(name: 'default')
 
+start_time = Time.new(2017,1,1)
+end_time = Time.new(2020,1,1)
 Event.create(name: 'NUANSA', category: category, description: "
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pellentesque
   enim eu maximus dapibus. Sed semper leo a arcu dapibus maximus. Donec nec
@@ -32,7 +34,7 @@ Event.create(name: 'NUANSA', category: category, description: "
   ullamcorper elit, eu euismod arcu leo ut tortor. Duis ac venenatis libero,
   suscipit imperdiet nunc. Nam non rutrum metus, ac sagittis augue. Maecenas
   vel nisi vel magna elementum commodo. Proin cursus felis a augue luctus
-  hendrerit eget quis nulla.")
+  hendrerit eget quis nulla.", start_time: start_time, end_time: end_time)
 Event.create(name: 'Misi Kami Peduli', category: category)
 Event.create(name: 'Orientation', category: category)
 Event.create(name: 'POPI', category: category)
