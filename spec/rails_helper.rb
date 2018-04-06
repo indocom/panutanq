@@ -11,6 +11,7 @@ end
 require 'rspec/rails'
 require 'support/factory_bot'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'support/coveralls'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
