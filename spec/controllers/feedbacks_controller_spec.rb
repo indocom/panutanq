@@ -66,9 +66,9 @@ RSpec.describe FeedbacksController, type: :controller do
         end.to change(Feedback, :count).by(1)
       end
 
-      it 'redirects to the created feedback' do
+      it 'redirects to home' do
         post :create, params: { feedback: attributes_for(:feedback) }
-        expect(response).to redirect_to(Feedback.last)
+        expect(response).to redirect_to(root_path)
       end
     end
 
