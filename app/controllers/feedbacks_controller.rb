@@ -2,6 +2,7 @@
 
 class FeedbacksController < ApplicationController
   before_action :set_feedback, only: %i[show destroy]
+  load_and_authorize_resource
 
   # GET /feedbacks
   def index
@@ -26,7 +27,7 @@ class FeedbacksController < ApplicationController
     end
 
     if @feedback.save
-      redirect_to @feedback, notice: 'Feedback was successfully created.'
+      redirect_to root_path, notice: 'Feedback was successfully created.'
     else
       render :new
     end
