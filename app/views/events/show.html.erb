@@ -21,6 +21,9 @@
       <div class="event-description">
         <%= @event.description %>
       </div>
+
+      <%= button_to "Add New Event", new_event_path, :method => :get %>
+
     </div>
   </div>
 

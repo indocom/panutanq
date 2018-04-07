@@ -1,10 +1,14 @@
 <div class="container">
 
   <%= form_for @event do |f| %>
-    <div class="form-group">
+    <p>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.all.pluck(:name, :id) %>
+    </p>
+    <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
-    </div>
+    </p>
     <p>
       <%= f.label :description %>
       <%= f.text_field :description %>

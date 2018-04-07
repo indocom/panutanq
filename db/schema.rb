@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227083647) do
+ActiveRecord::Schema.define(version: 20180407171000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20180227083647) do
   create_table "events", force: :cascade do |t|
     t.bigint   "category_id", :index=>{:name=>"index_events_on_category_id"}
     t.text     "description"
-    t.time     "start_time"
-    t.time     "end_time"
     t.string   "name"
     t.datetime "created_at",  :null=>false
     t.datetime "updated_at",  :null=>false
+    t.date     "start_time"
+    t.date     "end_time"
   end
 
   create_table "feedbacks", force: :cascade do |t|
