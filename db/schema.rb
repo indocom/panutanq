@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 20180227083647) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
+    t.string   "name"
     t.string   "email"
+    t.boolean  "anonymous",  :default=>true
     t.text     "message"
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
