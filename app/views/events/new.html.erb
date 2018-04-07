@@ -1,0 +1,23 @@
+<div class="container">
+
+  <%= form_for @event do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p
+    <p>
+      <%= f.label :start_time %>
+      <%= f.date_select :start_time %>
+    </p>
+    <p>
+      <%= f.label :end_time %>
+      <%= f.date_select :end_time %>
+    </p>
+    <%= f.submit 'Create' %>
+  <% end %>
+
+</div>
