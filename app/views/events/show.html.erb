@@ -5,7 +5,7 @@
       <h3>Events</h3>
       <ul class="list-unstyled">
         <% @events.each do |event| %>
-          <li><%= link_to event.name, show_event_path(event.id) %></li>
+          <li><%= link_to event.name, event_path(event) %></li>
         <% end %>
       </ul>
     </div>
@@ -14,9 +14,9 @@
       <h1><%= @event.name %></h1>
 
       <div class="event-time text-muted">
-        <%= @event.start_time %>
+        <%= @event.start_time.strftime("%B %d, %Y") %>
         to
-        <%= @event.end_time %>
+        <%= @event.end_time.strftime("%B %d, %Y") %>
       </div>
       <div class="event-description">
         <%= @event.description %>
