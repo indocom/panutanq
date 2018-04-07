@@ -1,0 +1,29 @@
+<div class="container">
+
+  <%= form_for @event do |f| %>
+    <p>
+      <%= f.label :category_id %>
+      <%= f.select :category_id, Category.all.pluck(:name, :id) %>
+    </p>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p
+    <p>
+      <%= f.label :start_time %>
+      <%= f.date_select :start_time %>
+    </p>
+    <p>
+      <%= f.label :end_time %>
+      <%= f.date_select :end_time %>
+    </p>
+    <%= f.submit 'Edit Event' %>
+  <% end %>
+
+  <%= button_to 'Delete Event', @event, method: :delete %>
+
+</div>
