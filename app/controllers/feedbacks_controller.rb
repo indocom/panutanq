@@ -27,7 +27,7 @@ class FeedbacksController < ApplicationController
     end
 
     if @feedback.save
-      redirect_to @feedback, notice: 'Feedback was successfully created.'
+      redirect_to root_path, notice: 'Feedback was successfully created.'
     else
       render :new
     end

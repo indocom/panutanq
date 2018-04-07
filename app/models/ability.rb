@@ -16,7 +16,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     can %i[read create], User
     can :read, :events
-    can %i[create new], Feedback
+    can %i[new create], Feedback
 
     if user.has_role? :admin
       can :manage, :all
