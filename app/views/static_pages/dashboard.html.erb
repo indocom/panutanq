@@ -1,7 +1,12 @@
 <div class="jumbotron">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
-      <h1 class="text-center display-1">Welcome, <%= current_user.fullname %></h1>
+      <div class="col-6">
+        <%= image_tag current_user.avatar.url(:thumb) %>
+      </div>
+      <div class="col-6">
+      <h2 class="text-center display-1">Welcome, <%= current_user.fullname %></h2>
+    </div>
       <div class="row">
       <div class="col-6">
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-block" %>

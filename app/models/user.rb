@@ -29,6 +29,12 @@
 #  display_graduation          :boolean
 #  display_overseas_experience :boolean
 #  display_work_experience     :boolean
+#  provider                    :string
+#  uid                         :string
+#  avatar_file_name            :string
+#  avatar_content_type         :string
+#  avatar_file_size            :integer
+#  avatar_updated_at           :datetime
 #
 # Indexes
 #
@@ -37,6 +43,9 @@
 #
 
 class User < ApplicationRecord
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' },
+                             default_url: 'no-avatar.png'
+  validates_attachment_content_type :avatar, content_type: %r{/\Aimage\/.*\z/}
   rolify
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
