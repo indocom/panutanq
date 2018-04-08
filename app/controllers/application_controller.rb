@@ -29,6 +29,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_events
-    @events = Event.all
+    @events = Event.all.order(:name)
   end
 end

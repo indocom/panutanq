@@ -35,7 +35,7 @@ Event.create(name: 'NUANSA', category: category, description: "
   suscipit imperdiet nunc. Nam non rutrum metus, ac sagittis augue. Maecenas
   vel nisi vel magna elementum commodo. Proin cursus felis a augue luctus
   hendrerit eget quis nulla.", start_time: start_time, end_time: end_time)
-Event.create(name: 'Misi Kami Peduli', category: category)
-Event.create(name: 'Orientation', category: category)
-Event.create(name: 'POPI', category: category)
-Event.create(name: 'Nusantaraku', category: category)
+Event.create(name: 'Misi Kami Peduli', category: category, start_time: start_time, end_time: end_time)
+Event.create(name: 'Orientation', category: category, start_time: start_time, end_time: end_time)
+Event.create(name: 'POPI', category: category, start_time: start_time, end_time: end_time)
+Event.create(name: 'Nusantaraku', category: category, start_time: start_time, end_time: end_time)
