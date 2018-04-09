@@ -44,7 +44,9 @@
 
 class User < ApplicationRecord
   has_attached_file :avatar, styles: { medium: '300x300>', thumb: '150x150>' },
-                             default_url: 'no-avatar.png'
+                             default_url: 'no-avatar.png',
+                             path: ":rails_root/public/user_files/:class/:attachment/:id_partition/:style/:filename",
+                             url: "public/user_files/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\z}
   rolify
   # Virtual attribute for authenticating by either username or email
