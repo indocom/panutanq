@@ -45,6 +45,8 @@ end
 gem 'schema_validations'
 # Environment variables
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+# For handling nested form
+gem "nested_form"
 
 group :test do
   # Test coverage
