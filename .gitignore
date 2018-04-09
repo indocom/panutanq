@@ -24,3 +24,6 @@
 
 # Ignore database configuration file
 /config/database.yml
+
+# Ignore uploaded files
+/public/system
