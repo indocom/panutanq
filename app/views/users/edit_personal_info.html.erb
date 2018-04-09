@@ -6,9 +6,11 @@
 	</div>
 		<%= image_tag @user.avatar.url(:thumb) %>
 	<div class="form-group">
-		Remove avatar?
-		<%= hidden_field_tag(:delete_avatar, 0) %>
-		<%= check_box_tag(:delete_avatar, 1) %>
+		<% if @user.avatar.exists? %>
+		  Remove avatar?
+		  <%= hidden_field_tag(:delete_avatar, 0) %>
+		  <%= check_box_tag(:delete_avatar, 1) %>
+		<% end %>
   </div>
   <div class="form-group">
     <%= f.label :fullname %><br />
