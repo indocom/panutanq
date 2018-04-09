@@ -39,7 +39,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    Event.find(params[:id]).destroy
+    @event = Event.find(params[:id])
+    @pictures = Picture.where(event_id: @event.id)
+    @pictures.each do |picture|
+      picture.destroy
+    end
+    @event.destroy
     redirect_to home_path
   end
 
