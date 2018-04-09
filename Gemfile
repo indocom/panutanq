@@ -45,6 +45,8 @@ end
 gem 'schema_validations'
 # Environment variables
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+# Paperclip: a file attachment library for ActiveRecord
+gem "paperclip", "~> 6.0.0"
 # For handling nested form
 gem "nested_form"
 
