@@ -103,9 +103,13 @@ RSpec.describe UsersController, type: :controller do
     it 'returns http success with updated avatar' do
       user = User.create(email: 'abcd@efg.com', password: 'test123')
       sign_in user
+
+      avatar_file = Rails.root.join('app', 'assets', 'images', 'pinus-logo.png')
       post :update_personal_info, params: {
-        id: user.id, user: { avatar: File.read('app/assets/images/pinus-logo.png') }
+        id: user.id, user: { avatar: Rack::Test::UploadedFile.new(avatar_file) }
       }
+      user.reload
+
       expect(response).to redirect_to(dashboard_path)
       expect(user.avatar.exists?).to be true
     end
