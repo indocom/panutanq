@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   # end
   resources :users, except: %i[create new edit]
 
-
   # post 'create_user' => 'users#create', :as => 'create_user'
 
   resources :feedbacks
