@@ -39,11 +39,17 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    Event.find(params[:id]).destroy
+    @event = Event.find(params[:id])
+    @pictures = Picture.where(event_id: @event.id)
+    @pictures.each do |picture|
+      picture.destroy
+    end
+    @event.destroy
     redirect_to home_path
   end
 
   private def event_params
-    params.require(:event).permit(:category_id, :name, :description, :start_time, :end_time)
+    params.require(:event).permit(:category_id, :name, :description,
+                                  :start_time, :end_time, pictures_attributes: [:id, :picture, :_destroy])
   end
 end

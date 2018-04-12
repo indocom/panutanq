@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -29,6 +28,12 @@
 #  display_graduation          :boolean
 #  display_overseas_experience :boolean
 #  display_work_experience     :boolean
+#  provider                    :string
+#  uid                         :string
+#  avatar_file_name            :string
+#  avatar_content_type         :string
+#  avatar_file_size            :integer
+#  avatar_updated_at           :datetime
 #
 # Indexes
 #

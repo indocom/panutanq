@@ -37,6 +37,16 @@
       <%= f.date_select :end_time %>
     </div>
 
+  <!--not zefa begins
+    <div class="form-group row">
+      <%= f.fields_for :pictures do |picture_form| %>
+        <%= picture_form.file_field :picture %>
+        <%= picture_form.link_to_remove "Remove this picture" %>
+      <% end %>
+      <p><%= f.link_to_add "Add more picture", :pictures %></p>
+    </div>
+  not zefa ends -->
+  
     <div class="form-group row">
       <div class="col-sm-8 offset-md-2">
         <%= f.submit 'Create', class: 'btn btn-primary btn-lg btn-block' %>

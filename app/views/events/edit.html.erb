@@ -1,6 +1,6 @@
 <div class="container">
 
-  <%= form_for @event do |f| %>
+  <%= nested_form_for @event do |f| %>
     <p>
       <%= f.label :category_id %>
       <%= f.select :category_id, Category.all.pluck(:name, :id) %>
@@ -21,6 +21,11 @@
       <%= f.label :end_time %>
       <%= f.date_select :end_time %>
     </p>
+      <%= f.fields_for :pictures do |picture_form| %>
+        <%= picture_form.file_field :picture %>
+        <%= picture_form.link_to_remove "Remove this picture" %>
+      <% end %>
+      <p><%= f.link_to_add "Add more picture", :pictures %></p>
     <%= f.submit 'Edit Event' %>
   <% end %>
 
