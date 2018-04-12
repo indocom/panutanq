@@ -26,4 +26,4 @@
 /config/database.yml
 
 # Ignore uploaded files
-/public/system
+/public/user_files
