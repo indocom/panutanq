@@ -37,7 +37,6 @@
 #
 
 class User < ApplicationRecord
-  belongs_to :static_page
   rolify
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

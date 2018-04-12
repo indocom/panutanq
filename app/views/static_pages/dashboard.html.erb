@@ -1,25 +1,25 @@
 
   <body>
-    <div class="sideMenu">
-      <div class="Welcome">
+    <div class="side-menu">
+      <div class="welcome">
         Hi, <%= current_user.fullname %>!
       </div>
-      <span class="InsideSideMenu">
+      <span class="inside-side-menu">
         <a href="#" <i class="fa fa-home"></i> Dashboard </a>
       </span>
-      <div class="InsideSideMenu" class="dropdown-toggle">
+      <div class="inside-side-menu" class="dropdown-toggle">
         <a href="#" <i class="fa fa-calendar"></i> Events <i class="fa fa-caret-down"></i> </a>
       </div>
-      <div class="InsideSideMenu">
+      <div class="inside-side-menu">
         <%=  link_to "PINUSians", users_path, class: "fa fa-user" %>
       </div>
-      <div class="InsideSideMenu">
+      <div class="inside-side-menu">
         <%= link_to "Profile", edit_user_info_path(id: current_user.id), class: "fa fa-user" %>
       </div>
-      <div class="InsideSideMenu">
+      <div class="inside-side-menu">
         <%= link_to "Settings", edit_user_registration_path, class: "fa fa-cog" %>
       </div>
-      <div class="InsideSideMenu">
+      <div class="inside-side-menu">
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %>
       </div>
     </div>
@@ -44,8 +44,8 @@
           <td><%= user.fullname %></td>
           <td><%= user.email %></td>
           <td><%= user.all_roles || '-' %></td>
-          <td></td>
-          <td></td>
+          <td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "fa fa-edit" %></td>
+          <td><%= link_to 'Delete', user_path(id: user.id), data: {	confirm: "Are you sure?" }, method: :delete, class: "fa fa-delete" %></td>
         </tr>
       <% end %>
   </tbody>

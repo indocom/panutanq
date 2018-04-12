@@ -10,10 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
-
+@import 'variables';
 @import 'bootstrap';
 @import 'admins';
 @import 'home';
 @import 'about';
 @import 'static_pages';
-@import 'variables';
+
+* {
+  z-index: 2;
+}
