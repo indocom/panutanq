@@ -22,5 +22,8 @@
 
 .byebug_history
 
+# Ignore uploaded files
+/public/event_files
+
 # Ignore database configuration file
 /config/database.yml

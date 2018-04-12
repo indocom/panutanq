@@ -44,7 +44,7 @@
       <div class="form-group">
         <%= f.fields_for :pictures do |picture_form| %>
           <%= picture_form.file_field :picture %>
-          <%= picture_form.link_to_remove "Remove this picture" %>
+          <%= picture_form.link_to_remove "Remove" %>
         <% end %>
         <p><%= f.link_to_add "Add more picture", :pictures %></p>
       </div>
