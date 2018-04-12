@@ -11,11 +11,12 @@
  * It is generally better to create a new file per style scope.
  */
 @import 'variables';
+@import 'static_pages';
 @import 'bootstrap';
 @import 'admins';
 @import 'home';
 @import 'about';
-@import 'static_pages';
+
 
 * {
   z-index: 2;
