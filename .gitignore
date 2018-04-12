@@ -21,3 +21,9 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore database configuration file
+/config/database.yml
+
+# Coveralls
+coverage

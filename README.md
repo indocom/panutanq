@@ -2,6 +2,7 @@
 PINUS Website
 
 [![Build Status](https://travis-ci.org/pinus-it/panutanq.svg?branch=master)](https://travis-ci.org/pinus-it/panutanq)
+[![Coverage Status](https://coveralls.io/repos/github/pinus-it/panutanq/badge.svg?branch=master)](https://coveralls.io/github/pinus-it/panutanq?branch=master)
 
 ## Schema Diagram
 ![Schema diagram](schema.jpg)
