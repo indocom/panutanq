@@ -1,7 +1,6 @@
-<form>
-
+<!--
   <%= nested_form_for @event do |f| %>
-    
+
     <div class="form-group row">
       <div class="col-sm-3 offset-md-2">
         <%= f.label :category_id %>
@@ -22,7 +21,7 @@
         <%= f.text_area :description, class: 'form-control', rows: '15' %>
       </div>
     </div>
-    
+
     <div class="form-group row">
       <div class="col-sm-3 offset-md-2">
         <%= f.label :start_time %>
@@ -49,7 +48,7 @@
         <%= f.link_to_add "Add more pictures", :pictures %>
       </div>
     </div>
-    
+
     <div class="form-group row">
       <div class="col-sm-2 offset-md-2">
         <%= f.submit 'Edit Event', class: 'btn btn-primary btn-lg' %>
@@ -59,5 +58,67 @@
       </div>
     </div>
   <% end %>
+-->
 
-</form>
+<%= nested_form_for @event do |f| %>
+
+  <div class="form-group row">
+    <div class="col-sm-3 offset-md-2">
+      <%= f.label :category_id %>
+    </div>
+      <%= f.select :category_id, Category.all.pluck(:name, :id) %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-8 offset-md-2">
+      <%= f.label :title %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-8 offset-md-2">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', rows: '15' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-3 offset-md-2">
+      <%= f.label :start_time %>
+    </div>
+    <%= f.date_select :start_time %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-3 offset-md-2">
+      <%= f.label :end_time %>
+    </div>
+      <%= f.date_select :end_time %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-3 offset-md-2">
+      <%= f.fields_for :pictures do |picture_form| %>
+        <%= picture_form.file_field :picture %>
+        <% if picture_form.object.picture.exists? %>
+          <%= image_tag picture_form.object.picture.url(:thumb) %>
+          <% end %>
+        <%= picture_form.link_to_remove "Remove" %>
+      <% end %>
+      <%= f.link_to_add "Add more pictures", :pictures %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2 offset-md-2">
+      <%= f.submit 'Edit Event', class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2 offset-md-2">
+      <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "Are you sure? This event will be deleted permanently." }, class: "text-danger" %>
+    </div>
+  </div>
+<% end %>
