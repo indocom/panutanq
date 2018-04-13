@@ -27,3 +27,7 @@
 
 # Ignore uploaded files
 /public/user_files
+
+# Coveralls
+coverage
+
