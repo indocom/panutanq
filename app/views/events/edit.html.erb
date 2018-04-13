@@ -42,7 +42,7 @@
           <%= picture_form.file_field :picture %>
           <% if picture_form.object.picture.exists? %>
             <%= image_tag picture_form.object.picture.url(:thumb) %>
-            <% end %>
+          <% end %>
           <%= picture_form.link_to_remove "Remove" %>
         <% end %>
         <%= f.link_to_add "Add more pictures", :pictures %>
