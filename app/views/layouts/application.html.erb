@@ -50,10 +50,17 @@
             </li>
 
             <li class="nav-item pl-4">
-              <a class="nav-link" href="#">Contact</a>
+              <%= link_to 'Contact', contact_path, class: 'nav-link' %>
             </li>
             <li class="nav-item pl-4">
-              <a class="nav-link" href="#">For Freshmen</a>
+              <%= link_to 'For Freshmen', freshmen_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pl-4">
+              <% if (current_user&.has_role? :admin) %>
+                <%= link_to 'See Feedback', feedbacks_path ,class: 'nav-link' %>
+              <% else %>
+                <%= link_to 'Feedback', new_feedback_path ,class: 'nav-link' %>
+              <% end %>
             </li>
 
             <li class="nav-item pl-4">
