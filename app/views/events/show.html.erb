@@ -25,8 +25,9 @@
       <% @event.pictures.each do |picture| %>
         <%= image_tag picture.picture.url(:medium) %>
       <% end %>
-
-      <%= button_to "Edit Event", edit_event_path, :method => :get %>
+      <% if can? :edit, @event %>
+        <%= button_to "Edit Event", edit_event_path, :method => :get %>
+      <% end %>
 
     </div>
   </div>
