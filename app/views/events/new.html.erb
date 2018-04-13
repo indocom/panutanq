@@ -1,6 +1,6 @@
 <form>
 
-  <%= form_for @event do |f| %>
+  <%= nested_form_for @event do |f| %>
 
     <div class="form-group row">
       <div class="col-sm-3 offset-md-2">
@@ -42,7 +42,9 @@
         <%= picture_form.file_field :picture %>
         <%= picture_form.link_to_remove "Remove this picture" %>
       <% end %>
-      <p><%= f.link_to_add "Add more picture", :pictures %></p>
+      <div class="col-sm-3 offset-md-2">
+        <%= f.link_to_add "Add more pictures", :pictures %></p>
+      </div>
     </div>
 
     <div class="form-group row">
