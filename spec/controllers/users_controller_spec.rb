@@ -100,6 +100,29 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(dashboard_path)
     end
 
+    it 'returns http success with updated avatar' do
+      user = User.create(email: 'abcd@efg.com', password: 'test123')
+      sign_in user
+
+      avatar_file = Rails.root.join('app', 'assets', 'images', 'pinus-logo.png')
+      post :update_personal_info, params: {
+        id: user.id, user: { avatar: Rack::Test::UploadedFile.new(avatar_file) }
+      }
+      user.reload
+
+      expect(response).to redirect_to(dashboard_path)
+      expect(user.avatar.exists?).to be true
+    end
+
+    it 'returns http success with a logged in user' do
+      user = User.create(email: 'abcd@efg.com', password: 'test123')
+      sign_in user
+      post :update_personal_info, params: {
+        id: user.id, user: { fullname: 'test' }
+      }
+      expect(response).to redirect_to(dashboard_path)
+    end
+
     it 'returns http forbidden with logged in user changing other user' do
       user1 = User.create(email: 'abcd@efg.com', password: 'test123')
       user2 = User.create(email: 'abcde@fg.com', password: 'test123')
