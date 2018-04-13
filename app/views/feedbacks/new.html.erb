@@ -1,30 +1,34 @@
-<br/>
-<h1>New Feedback</h1>
-<br/><br/>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <h1 class="display-2">New Feedback</h1>
+    <%= form_for @feedback do |f| %>
 
-<p>If you are expecting a reply from us, please fill in your particulars
-and uncheck the Anonymous check box.</p>
-<p>If you are providing an anonymous feedback, please leave the Anonymous
-check box checked. Your particulars will, by default, be <strong>Anonymous</strong>.</p>
-</br>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
 
-<%= form_for @feedback do |f| %>
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</p>
-<p>
-  <%= f.label :anonymous %>
-  <%= f.check_box :anonymous %>
-</p>
-<p>
-  <%= f.label	:message %>
-  <%= f.text_area :message %>
-</p>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
 
-  <%= f.submit 'Submit Feedback' %>
-<% end %>
+      <div class="form-group">
+        <%= f.label :anonymous %>
+        <%= f.check_box :anonymous %>
+        <small class="form-text text-muted">If you are expecting a reply from us, please fill in your particulars
+      and uncheck this check box.</small>
+        <small class="form-text text-muted">Otherwise, leave it checked to provide an anonymous feedback.</small>
+      </div>
+
+      <div class="form-grpup">
+        <%= f.label	:message %>
+        <%= f.text_area :message, autofocus: true, class: "form-control", rows: "5" %>
+      </div>
+
+      <br />
+
+      <%= f.submit 'Submit Feedback', type: "submit", class: 'btn btn-default btn-primary' %>
+    <% end %>
+  </div>
+</div>

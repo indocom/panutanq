@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180409092834) do
 
   # These are extensions that must be enabled in order to support this database
@@ -83,6 +84,12 @@ ActiveRecord::Schema.define(version: 20180409092834) do
     t.boolean  "display_graduation"
     t.boolean  "display_overseas_experience"
     t.boolean  "display_work_experience"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
