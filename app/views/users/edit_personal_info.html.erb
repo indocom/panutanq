@@ -1,8 +1,8 @@
 <h1>Edit Roles</h1>
 	<%= form_for @user, url: update_user_info_path do |f| %>
 	<div class="form-group">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %><br />
+<%= f.label :avatar %><br />
+<%= f.file_field :avatar %><br />
 	</div>
 		<%= image_tag @user.avatar.url(:thumb) %>
 	<div class="form-group">
