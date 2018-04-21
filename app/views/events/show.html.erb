@@ -27,7 +27,7 @@
       <% end %>
       <br/>
       <% if can? :edit, @event %>
-        <%= button_to "Edit Event", edit_event_path, :method => :get %>
+        <%= link_to "Edit Event", edit_event_path, class: 'btn btn-primary' %>
       <% end %>
 
     </div>
