@@ -15,3 +15,13 @@
 @import 'admins';
 @import 'home';
 @import 'about';
+
+$navbar-height: 91px;
+
+.main-navbar {
+  background-color: rgba(248, 249, 250, 0.92) !important;
+}
+
+.content-container {
+  margin-top: $navbar-height;
+}
