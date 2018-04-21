@@ -4,7 +4,7 @@
       <div class="col-sm-3 offset-md-2">
         <%= f.label :category_id %>
       </div>
-        <%= f.select :category_id, Category.all.pluck(:name, :id) %>
+        <%= f.select :category_id, Category.pluck(:name, :id) %>
     </div>
 
     <div class="form-group row">
