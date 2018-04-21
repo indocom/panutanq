@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408071935) do
+ActiveRecord::Schema.define(version: 20180411202927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ahoy_events", force: :cascade do |t|
+    t.bigint   "visit_id",   :index=>{:name=>"index_ahoy_events_on_visit_id"}
+    t.bigint   "user_id",    :index=>{:name=>"index_ahoy_events_on_user_id"}
+    t.string   "name",       :index=>{:name=>"index_ahoy_events_on_name_and_time", :with=>["time"]}
+    t.jsonb    "properties"
+    t.datetime "time"
+  end
+
+  create_table "ahoy_visits", force: :cascade do |t|
+    t.string   "visit_token",      :index=>{:name=>"index_ahoy_visits_on_visit_token", :unique=>true}
+    t.string   "visitor_token"
+    t.bigint   "user_id",          :index=>{:name=>"index_ahoy_visits_on_user_id"}
+    t.string   "ip"
+    t.text     "user_agent"
+    t.text     "referrer"
+    t.string   "referring_domain"
+    t.string   "search_keyword"
+    t.text     "landing_page"
+    t.string   "browser"
+    t.string   "os"
+    t.string   "device_type"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "utm_source"
+    t.string   "utm_medium"
+    t.string   "utm_term"
+    t.string   "utm_content"
+    t.string   "utm_campaign"
+    t.datetime "started_at"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -62,6 +94,12 @@ ActiveRecord::Schema.define(version: 20180408071935) do
     t.datetime "updated_at",    :null=>false
   end
 
+  create_table "static_pages", force: :cascade do |t|
+    t.bigint   "user_id",    :index=>{:name=>"index_static_pages_on_user_id"}
+    t.datetime "created_at", :null=>false
+    t.datetime "updated_at", :null=>false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                       :default=>"", :null=>false, :index=>{:name=>"index_users_on_email", :unique=>true}
     t.string   "encrypted_password",          :default=>"", :null=>false
@@ -105,4 +143,5 @@ ActiveRecord::Schema.define(version: 20180408071935) do
   add_foreign_key "pictures", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "events"
+  add_foreign_key "static_pages", "users"
 end
