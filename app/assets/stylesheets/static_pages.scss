@@ -15,7 +15,7 @@
 
 .welcome {
   display: block;
-  color: $white;
+  color: #FFFFFF;
   text-decoration: none;
   padding: 15px 40px;
   transition: all 0.2s ease-in-out;
@@ -24,7 +24,7 @@
 
 .inside-side-menu {
   display: inline-block;
-  color: $white;
+  color: #FFFFFF;
   text-decoration: none;
   padding: 15px 40px;
   transition: all 0.2s ease-in-out;
@@ -41,7 +41,7 @@
 
       .fa {
         display:inline-block;
-        color: $white;
+        color: #FFFFFF;
         font-size: 1.4rem;
         margin-left: 10px;
         margin-right: 10px;
@@ -61,7 +61,7 @@
 .table {
   margin-left: 280px;
   margin-top: 25px;
-  background: $white;
+  background: #FFFFFF;
   width: 900px;
-  border: 1px solid $black;
+  border: 1px solid #000000;
 }
