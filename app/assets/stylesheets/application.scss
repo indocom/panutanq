@@ -16,6 +16,10 @@
 @import 'home';
 @import 'about';
 
+li.dropdown:hover > .dropdown-menu {
+
+}
+
 li.dropdown:hover > .dropdown-events {
-  display: block;
+  display:block;
 }
