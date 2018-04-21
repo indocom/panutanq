@@ -28,6 +28,10 @@
 #  display_graduation          :boolean
 #  display_overseas_experience :boolean
 #  display_work_experience     :boolean
+#  avatar_file_name            :string
+#  avatar_content_type         :string
+#  avatar_file_size            :integer
+#  avatar_updated_at           :datetime
 #  provider                    :string
 #  uid                         :string
 #

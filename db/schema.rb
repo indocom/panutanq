@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331144949) do
+ActiveRecord::Schema.define(version: 20180409092834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20180331144949) do
   create_table "events", force: :cascade do |t|
     t.bigint   "category_id", :index=>{:name=>"index_events_on_category_id"}
     t.text     "description"
-    t.time     "start_time"
-    t.time     "end_time"
     t.string   "name"
     t.datetime "created_at",  :null=>false
     t.datetime "updated_at",  :null=>false
+    t.date     "start_time"
+    t.date     "end_time"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -41,10 +41,13 @@ ActiveRecord::Schema.define(version: 20180331144949) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.bigint   "event_id",   :index=>{:name=>"index_pictures_on_event_id"}
-    t.bigint   "post_id",    :index=>{:name=>"index_pictures_on_post_id"}
-    t.datetime "created_at", :null=>false
-    t.datetime "updated_at", :null=>false
+    t.bigint   "event_id",             :index=>{:name=>"index_pictures_on_event_id"}
+    t.datetime "created_at",           :null=>false
+    t.datetime "updated_at",           :null=>false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -89,6 +92,10 @@ ActiveRecord::Schema.define(version: 20180331144949) do
     t.boolean  "display_graduation"
     t.boolean  "display_overseas_experience"
     t.boolean  "display_work_experience"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string   "provider"
     t.string   "uid"
   end
@@ -102,7 +109,6 @@ ActiveRecord::Schema.define(version: 20180331144949) do
 
   add_foreign_key "events", "categories"
   add_foreign_key "pictures", "events"
-  add_foreign_key "pictures", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "events"
 end
