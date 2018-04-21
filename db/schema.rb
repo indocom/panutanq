@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180326031353) do
-||||||| merged common ancestors
-ActiveRecord::Schema.define(version: 20180227083647) do
-=======
 ActiveRecord::Schema.define(version: 20180408071935) do
->>>>>>> origin/master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +32,7 @@ ActiveRecord::Schema.define(version: 20180408071935) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
-    t.boolean  "anonymous",  :default=>true
     t.text     "message"
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
@@ -70,12 +62,6 @@ ActiveRecord::Schema.define(version: 20180408071935) do
     t.datetime "updated_at",    :null=>false
   end
 
-  create_table "static_pages", force: :cascade do |t|
-    t.bigint   "user_id",    :index=>{:name=>"index_static_pages_on_user_id"}
-    t.datetime "created_at", :null=>false
-    t.datetime "updated_at", :null=>false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                       :default=>"", :null=>false, :index=>{:name=>"index_users_on_email", :unique=>true}
     t.string   "encrypted_password",          :default=>"", :null=>false
@@ -101,8 +87,6 @@ ActiveRecord::Schema.define(version: 20180408071935) do
     t.boolean  "display_graduation"
     t.boolean  "display_overseas_experience"
     t.boolean  "display_work_experience"
-    t.string   "provider"
-    t.string   "uid"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -121,5 +105,4 @@ ActiveRecord::Schema.define(version: 20180408071935) do
   add_foreign_key "pictures", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "events"
-  add_foreign_key "static_pages", "users"
 end
