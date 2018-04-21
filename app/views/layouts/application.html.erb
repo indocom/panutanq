@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Panutanq</title>
+    <%= csrf_meta_tags %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- logo -->
+        <%= image_tag 'pinus-logo.png', class: 'd-inline-block align-top img-fluid' %>
+
+        <!-- toggle -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <!--links-->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to 'Home', home_path, class: 'nav-link' %>
+            </li>
+
+            <!--dropdown Events-->
+            <li class="nav-item dropdown pl-4">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Events
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">NUANSA</a>
+                <a class="dropdown-item" href="#">Misi Kami Peduli</a>
+                <a class="dropdown-item" href="#">Orientation</a>
+                <a class="dropdown-item" href="#">Nusantaraku</a>
+                <a class="dropdown-item" href="#">Orientation</a>
+              </div>
+            </li>
+
+            <li class="nav-item pl-4">
+              <%= link_to 'About', about_path, class: 'nav-link' %>
+            </li>
+
+            <li class="nav-item pl-4">
+              <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pl-4">
+              <%= link_to 'For Freshmen', freshmen_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pl-4">
+              <% if (current_user&.has_role? :admin) %>
+                <%= link_to 'See Feedback', feedbacks_path ,class: 'nav-link' %>
+              <% else %>
+                <%= link_to 'Feedback', new_feedback_path ,class: 'nav-link' %>
+              <% end %>
+            </li>
+
+            <li class="nav-item pl-4">
+              <button type="button" class="btn-outline-info">
+                <% if current_user %>
+                  <%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %>
+                <% else %>
+                  <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+                <% end %>
+              </button>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>

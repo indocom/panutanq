@@ -1,0 +1,25 @@
+language: ruby
+cache: bundler
+rvm: 2.5.0
+bundler_args: "--without production development"
+services: postgresql
+
+env:
+  - COMMAND="rspec"
+  - COMMAND="rubocop -D -f simple"
+  - COMMAND="brakeman"
+  - COMMAND="scss-lint app/assets/stylesheets"
+  - COMMAND="rake traceroute FAIL_ON_ERROR=1"
+
+matrix:
+  allow_failures:
+    - env: COMMAND="brakeman"
+    - env: COMMAND="scss-lint app/assets/stylesheets"
+    - env: COMMAND="rake traceroute FAIL_ON_ERROR=1"
+
+before_script:
+  - psql -c 'create database panutanq_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+
+script:
+  - "bundle exec $COMMAND"

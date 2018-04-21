@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+      <h1>List of PINUSians</h1>
+      <h3>You</h3>
+      <table class="table">
+        <tr>
+          <th scope="row">Full Name</th>
+          <td><%= current_user.fullname %></td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Roles</th>
+          <td><%= current_user.all_roles || '-' %></td>
+        </tr>
+      </table>
+      <h3>Other PINUSians</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Roles</th>
+            <% if current_user.has_role? :admin %>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <% if user != current_user %>
+              <tr>
+                <td><%= user.fullname %></td>
+                <td><%= user.email %></td>
+                <td><%= user.all_roles || '-' %></td>
+                <% if current_user.has_role? :admin %>
+                  <td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "btn btn-warning btn-sm" %></td>
+                  <td><%= link_to 'Delete', user_path(id: user.id), data: {	confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm" %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Back", dashboard_path, class: "btn-primary btn btn-block" %>
+    </div>
+  </div>
+</div>

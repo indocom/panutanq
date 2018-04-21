@@ -1,0 +1,52 @@
+
+  <body>
+    <div class="side-menu">
+      <div class="welcome">
+        Hi, <%= current_user.fullname %>!
+      </div>
+      <span class="inside-side-menu">
+        <a href="#" <i class="fa fa-home"></i> Dashboard </a>
+      </span>
+      <div class="inside-side-menu" class="dropdown-toggle">
+        <a href="#" <i class="fa fa-calendar"></i> Events <i class="fa fa-caret-down"></i> </a>
+      </div>
+      <div class="inside-side-menu">
+        <%=  link_to "PINUSians", users_path, class: "fa fa-user" %>
+      </div>
+      <div class="inside-side-menu">
+        <%= link_to "Profile", edit_user_info_path(id: current_user.id), class: "fa fa-user" %>
+      </div>
+      <div class="inside-side-menu">
+        <%= link_to "Settings", edit_user_registration_path, class: "fa fa-cog" %>
+      </div>
+      <div class="inside-side-menu">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "fa fa-sign-out" %>
+      </div>
+    </div>
+  </body>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Roles</th>
+      <% if current_user.has_role? :admin %>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.fullname %></td>
+          <td><%= user.email %></td>
+          <td><%= user.all_roles || '-' %></td>
+          <td><%= link_to 'Edit Role', edit_user_role_path(id: user.id), class: "fa fa-edit" %></td>
+          <td><%= link_to 'Delete', user_path(id: user.id), data: {	confirm: "Are you sure?" }, method: :delete, class: "fa fa-delete" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,67 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.side-menu {
+  padding-top: 120px;
+  background: $darkgrey;
+  max-width: 250px;
+  position: absolute;
+  width: 280px;
+  top:0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.welcome {
+  display: block;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 40px;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.4rem;
+}
+
+.inside-side-menu {
+  display: inline-block;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 40px;
+  transition: all 0.2s ease-in-out;
+
+    &:hover {
+    background:$darkpurple;
+    border-left: 5px solid $niceblue;
+    width: 250px;
+
+      .fa {
+          color: $niceblue;
+       }
+      }
+
+      .fa {
+        display:inline-block;
+        color: #FFFFFF;
+        font-size: 1.4rem;
+        margin-left: 10px;
+        margin-right: 10px;
+       }
+
+      &.active {
+        background: $darkgrey;
+        border-left: 5px solid $niceblue;
+        padding: 15px 30px 15px 25px;
+
+        .fa {
+          color: $niceblue
+        }
+      }
+    }
+
+.table {
+  margin-left: 280px;
+  margin-top: 25px;
+  background: #FFFFFF;
+  width: 900px;
+  border: 1px solid #000000;
+}
