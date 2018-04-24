@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
-
   # Catch CanCan:AccessDenied exception
   rescue_from CanCan::AccessDenied do |_exception|
     render file:

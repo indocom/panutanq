@@ -19,7 +19,6 @@ class Ability
     can :read, :events
     can %i[new create], Feedback
 
-
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :event_manager

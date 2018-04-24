@@ -46,7 +46,6 @@ class UsersController < ApplicationController
       :fullname, :contact_number, :major, :graduation, :overseas_experience,
       :work_experience, :display_contact_number, :display_major,
       :display_graduation, :display_overseas_experience,
-      :display_work_experience
       :display_work_experience, :avatar
     )
   end
