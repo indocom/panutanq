@@ -1,6 +1,18 @@
-<h1>Edit Roles</h1>
-	<%= form_for @user, url: update_user_info_path do |f| %>
-        <div class="form-group">
+<h1>Edit Personal Information</h1>
+  <%= form_for @user, url: update_user_info_path do |f| %>
+  <div class="form-group">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %><br />
+  </div>
+  <%= image_tag @user.avatar.url(:thumb) %>
+  <div class="form-group">
+    <% if @user.avatar.exists? %>
+      Remove avatar?
+      <%= hidden_field_tag(:delete_avatar, 0) %>
+      <%= check_box_tag(:delete_avatar, 1) %>
+    <% end %>
+  </div>
+  <div class="form-group">
     <%= f.label :fullname %><br />
     <%= f.text_field :fullname, autofocus: true, autocomplete: "name" %>
   </div>
@@ -36,4 +48,3 @@
   </div>
   <%= f.submit 'Save' %>
   <% end %>
-   
