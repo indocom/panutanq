@@ -29,12 +29,12 @@
 #  display_graduation          :boolean
 #  display_overseas_experience :boolean
 #  display_work_experience     :boolean
+#  provider                    :string
+#  uid                         :string
 #  avatar_file_name            :string
 #  avatar_content_type         :string
 #  avatar_file_size            :integer
 #  avatar_updated_at           :datetime
-#  provider                    :string
-#  uid                         :string
 #
 # Indexes
 #
@@ -43,6 +43,13 @@
 #
 
 FactoryBot.define do
+  sequence :email do |n|
+    "calvin#{n}@futures.com"
+  end
+
   factory :user do
+    email
+    fullname 'Calvin Tantio'
+    password '123456'
   end
 end

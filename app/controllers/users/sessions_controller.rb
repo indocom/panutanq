@@ -4,6 +4,7 @@ module Users
   class SessionsController < Devise::SessionsController
     before_action :configure_sign_in_params, only: [:create]
 
+
     # GET /resource/sign_in
     # def new
     #   super
@@ -25,5 +26,11 @@ module Users
     # def configure_sign_in_params
     #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
     # end
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(
+        :sign_up, keys: %i[fullname]
+      )
+    end
+
   end
 end

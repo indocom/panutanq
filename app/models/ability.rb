@@ -10,11 +10,15 @@ class Ability
     if user.present?
       can :manage, User, id: user.id
       cannot :edit_role, User
+      cannot :index, Feedback
+
     end
 
     user ||= User.new # guest user (not logged in)
     can %i[read create], User
     can :read, :events
+    can %i[new create], Feedback
+
 
     if user.has_role? :admin
       can :manage, :all

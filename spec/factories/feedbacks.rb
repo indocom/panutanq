@@ -15,7 +15,9 @@
 
 FactoryBot.define do
   factory :feedback do
-    email 'MyString'
-    message 'MyText'
+    name 'Calvin Tantio'
+    email 'calvin@futures.com'
+    anonymous false
+    message 'PINUS itu apa?'
   end
 end

@@ -29,12 +29,12 @@
 #  display_graduation          :boolean
 #  display_overseas_experience :boolean
 #  display_work_experience     :boolean
+#  provider                    :string
+#  uid                         :string
 #  avatar_file_name            :string
 #  avatar_content_type         :string
 #  avatar_file_size            :integer
 #  avatar_updated_at           :datetime
-#  provider                    :string
-#  uid                         :string
 #
 # Indexes
 #
@@ -43,6 +43,14 @@
 #
 
 class User < ApplicationRecord
+  AVATAR_URL = '/user_files/:class/:attachment/:id_partition/:style/:filename'
+
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '150x150>' },
+                             default_url: 'no-avatar.png',
+                             path: ":rails_root/public#{AVATAR_URL}",
+                             url: AVATAR_URL
+  validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\z}
+
   rolify
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -51,11 +59,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
-
+  
   def password=(password)
     @password = password
     self.encrypted_password = BCrypt::Password.create(password)
   end
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

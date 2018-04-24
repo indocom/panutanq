@@ -3,10 +3,12 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get 'home', to: 'static_pages#home'
+  get 'freshmen', to: 'static_pages#freshmen'
+  get 'contact', to: 'static_pages#contact'
   get 'about', to: 'static_pages#about'
-
   devise_for :users,
              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   # as :user do
   #  get 'users/edit' => 'devise/registrations#edit',
   #      :as => 'edit_user_registration'
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   resources :users, except: %i[create new edit]
 
   # post 'create_user' => 'users#create', :as => 'create_user'
+
+  resources :feedbacks
 
   get '/users/:id/edit_role' => 'users#edit_role', :as => 'edit_user_role'
   get '/users/:id/edit_info' => 'users#edit_personal_info',

@@ -3,6 +3,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  # rubocop:enable Rails/LexicallyScopedActionFilter
+
+
   # Catch CanCan:AccessDenied exception
   rescue_from CanCan::AccessDenied do |_exception|
     render file:
