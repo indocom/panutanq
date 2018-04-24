@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def update_personal_info
     user = User.find(params[:id])
+    user.avatar.destroy if params[:delete_avatar] == '1'
     if user.update(user_info_params)
       redirect_to dashboard_path
     else
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
       :fullname, :contact_number, :major, :graduation, :overseas_experience,
       :work_experience, :display_contact_number, :display_major,
       :display_graduation, :display_overseas_experience,
-      :display_work_experience
+      :display_work_experience, :avatar
     )
   end
 
