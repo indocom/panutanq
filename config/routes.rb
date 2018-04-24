@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'freshmen', to: 'static_pages#freshmen'
   get 'contact', to: 'static_pages#contact'
   get 'about', to: 'static_pages#about'
+  devise_for :users,
+             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  devise_for :users
   # as :user do
   #  get 'users/edit' => 'devise/registrations#edit',
   #      :as => 'edit_user_registration'

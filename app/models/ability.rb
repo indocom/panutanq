@@ -11,6 +11,7 @@ class Ability
       can :manage, User, id: user.id
       cannot :edit_role, User
       cannot :index, Feedback
+
     end
 
     user ||= User.new # guest user (not logged in)
