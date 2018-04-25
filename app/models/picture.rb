@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pictures
@@ -29,8 +30,8 @@ class Picture < ApplicationRecord
 
   belongs_to :event
   has_attached_file :picture, styles: { medium: '300x300>', thumb: '100x100>' },
-                             default_url: "/images/:style/missing.png",
-                             path: ":rails_root/public#{PICTURE_URL}",
-                             url: PICTURE_URL
+                              default_url: '/images/:style/missing.png',
+                              path: ":rails_root/public#{PICTURE_URL}",
+                              url: PICTURE_URL
   validates_attachment_content_type :picture, content_type: %r{\Aimage\/.*\z}
 end
