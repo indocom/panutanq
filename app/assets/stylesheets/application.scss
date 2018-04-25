@@ -23,3 +23,13 @@ li.dropdown:hover > .dropdown-menu {
 li.dropdown:hover > .dropdown-events {
   display:block;
 }
+
+$navbar-height: 91px;
+
+.main-navbar {
+  background-color: rgba(248, 249, 250, 0.92) !important;
+}
+
+.content-container {
+  margin-top: $navbar-height;
+}
