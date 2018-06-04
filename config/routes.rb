@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # post 'create_user' => 'users#create', :as => 'create_user'
 
   resources :feedbacks
+  resources :freshmens
 
   get '/users/:id/edit_role' => 'users#edit_role', :as => 'edit_user_role'
   get '/users/:id/edit_info' => 'users#edit_personal_info',
