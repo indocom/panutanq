@@ -18,7 +18,7 @@
         <%= @freshman.description %>
       </div>
       <% if can? :edit, @freshman %>
-        <%= button_to "Edit", edit_freshman_path, :method => :get %>
+        <%= link_to "Edit", edit_freshman_path,  class: 'btn btn-primary' %>
       <% end %>
 
     </div>
