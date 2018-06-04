@@ -1,4 +1,4 @@
-<%= nested_form_for @freshmen do |f| %>
+<%= nested_form_for @freshman do |f| %>
 
   <div class="form-group row">
     <div class="col-sm-8 offset-md-2">
@@ -22,7 +22,7 @@
 
   <div class="form-group row">
     <div class="col-sm-2 offset-md-2">
-      <%= link_to "Delete", @freshmen, method: :delete, data: { confirm: "Are you sure? This will be deleted permanently." }, class: "text-danger" %>
+      <%= link_to "Delete", @freshman, method: :delete, data: { confirm: "Are you sure? This will be deleted permanently." }, class: "text-danger" %>
     </div>
   </div>
 <% end %>

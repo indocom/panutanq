@@ -48,6 +48,8 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # Paperclip: a file attachment library for ActiveRecord
 gem "paperclip", "~> 6.0.0"
 
+gem "nested_form"
+
 group :test do
   # Test coverage
   gem 'coveralls', require: false

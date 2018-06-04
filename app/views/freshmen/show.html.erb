@@ -4,20 +4,20 @@
     <div class="col-3">
       <h3>Freshmen Guide</h3>
       <ul class="list-unstyled">
-        <% @freshmens.each do |freshmen| %>
-          <li><%= link_to freshmen.name, freshmen_path(freshmen) %></li>
+        <% @freshmen.each do |freshman| %>
+          <li><%= link_to freshman.name, freshman_path(freshman) %></li>
         <% end %>
       </ul>
     </div>
 
     <div class="col-9">
-      <h1><%= @freshmen.name %></h1>
+      <h1><%= @freshman.name %></h1>
       <br/><br/>
       <div class="event-description">
-        <%= @freshmen.description %>
+        <%= @freshman.description %>
       </div>
-      <% if can? :edit, @freshmen %>
-        <%= button_to "Edit", edit_freshmen_path, :method => :get %>
+      <% if can? :edit, @freshman %>
+        <%= button_to "Edit", edit_freshman_path, :method => :get %>
       <% end %>
 
     </div>
