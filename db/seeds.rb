@@ -17,3 +17,4 @@ admin = User.create(fullname: 'admin',
 admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
+Freshman.create(name: 'Admission', description: 'test')
