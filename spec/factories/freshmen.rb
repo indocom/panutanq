@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/LineLength
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: freshmen
@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :freshman do
-    description "MyText"
-    name "MyString"
+    description 'MyText'
+    name 'MyString'
   end
 end
