@@ -54,7 +54,7 @@
               <%= link_to 'Contact', contact_path, class: 'nav-link' %>
             </li>
             <li class="nav-item pl-4">
-              <%= link_to 'For Freshmen', freshmen_path, class: 'nav-link' %>
+              <%= link_to 'For Freshmen', freshman_path(id: 1), class: 'nav-link' %>
             </li>
             <li class="nav-item pl-4">
               <% if (current_user&.has_role? :admin) %>

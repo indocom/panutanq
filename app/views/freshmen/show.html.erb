@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-3">
-      <h3>Freshmen Guide</h3>
+      <h3>Links</h3>
       <ul class="list-unstyled">
         <% @freshmen.each do |freshman| %>
           <li><%= link_to freshman.name, freshman_path(freshman) %></li>
@@ -11,8 +11,9 @@
     </div>
 
     <div class="col-9">
-      <h1><%= @freshman.name %></h1>
-      <br/><br/>
+      <h1>Freshmen Guide</h1>
+      <h2><%= @freshman.name %></h2>
+      <br/>
       <div class="event-description">
         <%= @freshman.description %>
       </div>

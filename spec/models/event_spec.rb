@@ -6,11 +6,11 @@
 #  id          :integer          not null, primary key
 #  category_id :integer
 #  description :text
+#  start_time  :time
+#  end_time    :time
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  start_time  :date
-#  end_time    :date
 #
 # Indexes
 #

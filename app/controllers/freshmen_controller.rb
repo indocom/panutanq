@@ -6,6 +6,7 @@ class FreshmenController < ApplicationController
   end
 
   def show
+    @freshmen = Freshman.all
     @freshman = Freshman.find(params[:id])
   end
 
@@ -31,7 +32,7 @@ class FreshmenController < ApplicationController
     @freshman = Freshman.find(params[:id])
     @freshman.update_attributes(freshman_params)
 
-    if @freshmen.save
+    if @freshman.save
       redirect_to freshmen_path(@freshman)
     else
       render :edit
