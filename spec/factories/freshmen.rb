@@ -8,8 +8,8 @@
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  pagename    :string           default("no_name"), not null
 #
-# rubocop:enable Metrics/LineLength
 
 FactoryBot.define do
   factory :freshman do
