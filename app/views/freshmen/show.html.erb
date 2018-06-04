@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-3">
+      <h3>Freshmen Guide</h3>
+      <ul class="list-unstyled">
+        <% @freshmens.each do |freshmen| %>
+          <li><%= link_to freshmen.name, freshmen_path(freshmen) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-9">
+      <h1><%= @freshmen.name %></h1>
+      <br/><br/>
+      <div class="event-description">
+        <%= @freshmen.description %>
+      </div>
+      <% if can? :edit, @freshmen %>
+        <%= button_to "Edit", edit_freshmen_path, :method => :get %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

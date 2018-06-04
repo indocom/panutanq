@@ -1,0 +1,5 @@
+<ul>
+  <% @freshmens.each do |freshmen| %>
+  <li><%= link_to freshmen.name, show_freshmen_path(freshmen.id) %></li>
+  <% end %>
+</ul>
