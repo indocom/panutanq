@@ -1,5 +1,18 @@
-<ul>
-  <% @freshmen.each do |freshman| %>
-  <li><%= link_to freshman.name, show_freshmen_path(freshman.id) %></li>
-  <% end %>
-</ul>
+<!-- jumbotron top -->
+<div class="jumbotron jumbotron-fluid bg-cover intro">
+  <div class="overlay"></div>
+    <h1 class="display-4">For Freshmen</h1>
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent magna mi, viverra quis turpis in.</p>
+  </div>
+
+<!--latest-->
+<div class="latest">
+  <h1 class="display-4 news-title">Links</h1>
+  <div class="d-flex">
+    <ul class="list-inline mx-auto justify-content-center">
+      <% @freshmen.each do |freshman| %>
+        <li><h3><%= link_to freshman.name, freshman_path(freshman) %></h3></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
