@@ -10,7 +10,7 @@ class FreshmenController < ApplicationController
 
   def show
     @freshmen = Freshman.all
-    @freshman = Freshman.find_by_pagename(params[:id])
+    @freshman = Freshman.find_by(pagename: params[:id])
   end
 
   def new
@@ -28,11 +28,11 @@ class FreshmenController < ApplicationController
   end
 
   def edit
-    @freshman = Freshman.find_by_pagename(params[:id])
+    @freshman = Freshman.find_by(pagename: params[:id])
   end
 
   def update
-    @freshman = Freshman.find_by_pagename(params[:id])
+    @freshman = Freshman.find_by(pagename: params[:id])
     @freshman.update_attributes(freshman_params)
 
     if @freshman.save
@@ -43,7 +43,7 @@ class FreshmenController < ApplicationController
   end
 
   def destroy
-    @freshman = Freshman.find_by_pagename(params[:id])
+    @freshman = Freshman.find_by(pagename: params[:id])
     @freshman.destroy
     redirect_to home_path
   end

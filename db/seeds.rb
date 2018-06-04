@@ -17,8 +17,8 @@ admin = User.create(fullname: 'admin',
 admin.add_role :admin
 
 User.create(fullname: 'abcd', email: 'abcd@gmail.com', password: 'user123')
-Freshman.create(name: 'Admission', pagename: 'admission', description: 'Secara singkat, cara masuk ke
-  NUS:
+Freshman.create(name: 'Admission', pagename: 'admission',
+                description: 'Secara singkat, cara masuk ke NUS:
 
 Melalui jalur tes:
 Memasuki NUS melalui jalur tes mempunyai 4 tahapan penting yaitu mendaftarkan
@@ -88,8 +88,8 @@ pendaftaran tutup. Cek juga bermacam-macam orientasi dari fakultas, jurusan,
 tempat tinggal, serta dari PINUS supaya tidak tertinggal acara-acara seru dan
 kesempatan untuk bertemu teman-teman baru.')
 
-Freshman.create(name: 'Items to bring', pagename: 'itemstobring',description: 'Barang-barang yang perlu
-  dibawa ke Singapura:
+Freshman.create(name: 'Items to bring', pagename: 'itemstobring',
+                description: 'Barang-barang yang perlu dibawa ke Singapura:
 
 Barang-barang terkait administrasi masuk ke NUS (Acceptance Letter, Rapor,
   Sertifikat dan dokumen asli yang disertakan pada saat pendaftaran ke NUS,
