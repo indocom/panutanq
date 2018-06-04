@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class FreshmenController < ApplicationController
-  # load_and_authorize_resource
+  load_resource find_by: :pagename
+  authorize_resource
 
   def index
     @freshmen = Freshman.all
