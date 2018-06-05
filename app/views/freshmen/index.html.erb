@@ -10,7 +10,7 @@
   <h1 class="display-4 news-title">Links</h1>
   <div class="d-flex">
     <ul class="list-inline mx-auto justify-content-center">
-      <% @freshmen.each do |freshman| %>
+      <% @freshmen.order(:name).each do |freshman| %>
         <li><h3><%= link_to freshman.name, freshman_path(freshman) %></h3></li>
       <% end %>
     </ul>

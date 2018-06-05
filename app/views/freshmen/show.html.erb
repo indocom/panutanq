@@ -4,7 +4,7 @@
     <div class="col-3">
       <h3>Links</h3>
       <ul class="list-unstyled">
-        <% @freshmen.each do |freshman| %>
+        <% @freshmen.order(:name).each do |freshman| %>
           <li><%= link_to freshman.name, freshman_path(freshman) %></li>
         <% end %>
       </ul>
