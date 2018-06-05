@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604082728) do
+ActiveRecord::Schema.define(version: 20180605142841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,26 @@ ActiveRecord::Schema.define(version: 20180604082728) do
     t.datetime "updated_at", :null=>false
   end
 
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    :null=>false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              :limit=>30, :index=>{:name=>"index_ckeditor_assets_on_type"}
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",        :null=>false
+    t.datetime "updated_at",        :null=>false
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint   "category_id", :index=>{:name=>"index_events_on_category_id"}
     t.text     "description"
-    t.time     "start_time"
-    t.time     "end_time"
     t.string   "name"
     t.datetime "created_at",  :null=>false
     t.datetime "updated_at",  :null=>false
+    t.date     "start_time"
+    t.date     "end_time"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -49,9 +61,13 @@ ActiveRecord::Schema.define(version: 20180604082728) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.bigint   "event_id",   :index=>{:name=>"index_pictures_on_event_id"}
-    t.datetime "created_at", :null=>false
-    t.datetime "updated_at", :null=>false
+    t.bigint   "event_id",             :index=>{:name=>"index_pictures_on_event_id"}
+    t.datetime "created_at",           :null=>false
+    t.datetime "updated_at",           :null=>false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|

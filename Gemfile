@@ -50,6 +50,8 @@ gem "paperclip", "~> 6.0.0"
 
 gem "nested_form"
 
+gem 'ckeditor'
+
 group :test do
   # Test coverage
   gem 'coveralls', require: false

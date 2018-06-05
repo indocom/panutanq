@@ -14,8 +14,8 @@
       <h1>Freshmen Guide</h1>
       <h2><%= @freshman.name %></h2>
       <br/>
-      <div class="event-description" contenteditable="true">
-        <%= @freshman.description %>
+      <div class="event-description">
+        <%=raw @freshman.description %>
       </div>
       <% if can? :edit, @freshman %>
         <%= link_to "Edit", edit_freshman_path,  class: 'btn btn-primary' %>
