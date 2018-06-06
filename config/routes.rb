@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :static_pages
   root 'static_pages#home'
   get 'home', to: 'static_pages#home'
   get 'freshmen', to: 'static_pages#freshmen'

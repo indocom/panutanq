@@ -32,9 +32,7 @@ ActiveRecord::Schema.define(version: 20180408071935) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
-    t.boolean  "anonymous",  :default=>true
     t.text     "message"
     t.datetime "created_at", :null=>false
     t.datetime "updated_at", :null=>false
@@ -89,8 +87,6 @@ ActiveRecord::Schema.define(version: 20180408071935) do
     t.boolean  "display_graduation"
     t.boolean  "display_overseas_experience"
     t.boolean  "display_work_experience"
-    t.string   "provider"
-    t.string   "uid"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
