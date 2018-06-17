@@ -36,16 +36,30 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe 'POST #create' do
+    before do
+      user = create(:user)
+      user.add_role :admin
+      sign_in user
+
+      @category = create(:category)
+    end
+
     context 'with valid params' do
       it 'creates a new Event' do
         expect do
-          post :create, params: { event: attributes_for(:event) }
+          post :create, params: {
+            event: attributes_for(:event, category_id: @category.id)
+          }
         end.to change(Event, :count).by(1)
       end
 
       it 'redirects to home' do
-        post :create, params: { event: attributes_for(:event) }
-        expect(response).to redirect_to(root_path)
+        post :create, params: {
+          event: attributes_for(:event, name: 'asdf', category_id: @category.id)
+        }
+
+        event = Event.find_by(name: 'asdf').id
+        expect(response).to redirect_to(event_path(event))
       end
     end
 
@@ -57,7 +71,36 @@ RSpec.describe EventsController, type: :controller do
     end
   end
 
+  describe 'PUT #update' do
+    before do
+      user = create(:user)
+      user.add_role :admin
+      sign_in user
+
+      @event = create(:event)
+    end
+
+    context 'with valid params' do
+      it 'updates the Event' do
+        put :update, params: { id: @event.id, event: { description: 'xnxn' } }
+        @event.reload
+        expect(@event.description).to eq('xnxn')
+      end
+
+      it 'redirects to home' do
+        put :update, params: { id: @event.id, event: { description: 'xnxn' } }
+        expect(response).to redirect_to(event_path(@event))
+      end
+    end
+  end
+
   describe 'DELETE #destroy' do
+    before do
+      user = create(:user)
+      user.add_role :admin
+      sign_in user
+    end
+
     it 'destroys the requested event' do
       event = create(:event)
 
@@ -80,7 +123,7 @@ RSpec.describe EventsController, type: :controller do
       sign_in user
 
       delete :destroy, params: { id: event.id }
-      expect(response).to redirect_to(events_url)
+      expect(response).to redirect_to(home_url)
     end
   end
 end
