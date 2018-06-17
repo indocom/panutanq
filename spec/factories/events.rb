@@ -24,7 +24,7 @@
 
 FactoryBot.define do
   factory :event do
-    category nil
+    category
     description 'MyText'
     start_time '2018-01-31 20:25:54'
     end_time '2018-01-31 20:25:54'
