@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-3">
+      <h3>Events</h3>
+      <ul class="list-unstyled">
+        <% @events.each do |event| %>
+          <li><%= link_to event.name, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-9">
+      <h1><%= @event.name %></h1>
+
+      <div class="event-time text-muted">
+        <%= @event.start_time.strftime("%B %d, %Y") %>
+        to
+        <%= @event.end_time.strftime("%B %d, %Y") %>
+      </div>
+      <br/><br/>
+      <div class="event-description">
+        <%= @event.description %>
+      </div>
+      <% @event.pictures.each do |picture| %>
+        <%= image_tag picture.picture.url(:medium) %>
+      <% end %>
+      <br/>
+      <% if can? :edit, @event %>
+        <%= link_to "Edit Event", edit_event_path, class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

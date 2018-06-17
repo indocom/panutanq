@@ -16,6 +16,10 @@
 @import 'home';
 @import 'about';
 
+li.dropdown:hover > .dropdown-events {
+  display:block;
+}
+
 $navbar-height: 91px;
 
 .main-navbar {
