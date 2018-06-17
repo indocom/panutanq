@@ -68,7 +68,7 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
-    crass (1.0.3)
+    crass (1.0.4)
     devise (4.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -134,7 +134,7 @@ GEM
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.2.0)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     paperclip (6.0.0)
@@ -172,8 +172,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.3)
-      loofah (~> 2.0)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
     rails_real_favicon (0.0.7)
       json (>= 1.7, < 3)
       rails (>= 3.1)
