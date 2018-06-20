@@ -20,9 +20,7 @@
 #  index_ckeditor_assets_on_type  (type)
 #
 # rubocop:enable Metrics/LineLength
-class Asset < ApplicationRecord
-  class Ckeditor
-    include Ckeditor::Orm::ActiveRecord::AssetBase
-    include Ckeditor::Backend::Paperclip
-  end
+class Ckeditor::Asset < ApplicationRecord
+  include Ckeditor::Orm::ActiveRecord::AssetBase
+  include Ckeditor::Backend::Paperclip
 end
