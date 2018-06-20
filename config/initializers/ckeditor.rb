@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 # Use this hook to configure ckeditor
-Ckeditor.setup do |config|
+Ckeditor.setup do |_config|
   # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default), :mongo_mapper and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be
+  # Load and configure the ORM. Supports :active_record (default), :mongo_mapper
+  # and :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'ckeditor/orm/active_record'
 
   Ckeditor.setup do |config|
     # //cdn.ckeditor.com/<version.number>/<distribution>/ckeditor.js
-    config.cdn_url = "//cdn.ckeditor.com/4.6.1/basic/ckeditor.js"
+    config.cdn_url = '//cdn.ckeditor.com/4.6.1/basic/ckeditor.js'
   end
 
   # Allowed image file types for upload.
@@ -24,7 +26,8 @@ Ckeditor.setup do |config|
   # Allowed attachment file types for upload.
   # Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
-  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
+  # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar
+  # tar.gz swf)
 
   # Setup authorization to be run as a before filter
   # By default: there is no authorization.
@@ -46,7 +49,8 @@ Ckeditor.setup do |config|
   # By default: nil
   # config.asset_path = 'http://www.example.com/assets/ckeditor/'
 
-  # To reduce the asset precompilation time, you can limit plugins and/or languages to those you need:
+  # To reduce the asset precompilation time, you can limit plugins and/or
+  # languages to those you need:
   # By default: nil (no limit)
   # config.assets_languages = ['en', 'uk']
   # config.assets_plugins = ['image', 'smiley']

@@ -1,4 +1,5 @@
-# rubocop:disable Metrics/LineLength
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: ckeditor_assets
@@ -19,8 +20,9 @@
 #  index_ckeditor_assets_on_type  (type)
 #
 # rubocop:enable Metrics/LineLength
-
-class Ckeditor::Asset < ActiveRecord::Base
-  include Ckeditor::Orm::ActiveRecord::AssetBase
-  include Ckeditor::Backend::Paperclip
+class Asset < ApplicationRecord
+  class Ckeditor
+    include Ckeditor::Orm::ActiveRecord::AssetBase
+    include Ckeditor::Backend::Paperclip
+  end
 end
