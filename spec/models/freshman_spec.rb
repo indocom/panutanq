@@ -15,5 +15,8 @@
 require 'rails_helper'
 
 RSpec.describe Freshman, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves given a valid feedback' do
+    @freshman = build(:freshman)
+    expect(@freshman.save).to be true
+  end
 end
