@@ -4,12 +4,9 @@ class FreshmenController < ApplicationController
   load_resource find_by: :pagename
   authorize_resource
 
-  def index
-    @freshmen = Freshman.all
-  end
+  def index; end
 
   def show
-    @freshmen = Freshman.all
     @freshman = Freshman.find_by(pagename: params[:id])
   end
 
