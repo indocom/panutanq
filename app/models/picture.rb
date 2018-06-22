@@ -23,6 +23,12 @@
 #
 
 class Picture < ApplicationRecord
+  PICTURE_URL = '/event_files/:class/:attachment/:id_partition/:style/:filename'
+
   belongs_to :event
-  belongs_to :post
+  has_attached_file :picture, styles: { medium: '300x300>', thumb: '100x100>' },
+                              default_url: '/images/:style/missing.png',
+                              path: ":rails_root/public#{PICTURE_URL}",
+                              url: PICTURE_URL
+  validates_attachment_content_type :picture, content_type: %r{\Aimage\/.*\z}
 end

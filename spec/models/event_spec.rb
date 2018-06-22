@@ -25,5 +25,8 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves given a valid feedback' do
+    event = build(:event)
+    expect(event.save).to be true
+  end
 end
