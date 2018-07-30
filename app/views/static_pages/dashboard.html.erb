@@ -22,6 +22,11 @@
         <div class="col-6">
           <%=  link_to "List of PINUSians", users_path, class: "btn btn-warning btn-block" %>
         </div>
+        <% if can? :new, Event %>
+          <div class="col-12">
+            <%= button_to "Add New Event", new_event_path, :method => :get, class: "btn btn-block btn-primary" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

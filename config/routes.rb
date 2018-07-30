@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
   get 'about', to: 'static_pages#about'
 
+  resources :events
+
   devise_for :users
   # as :user do
   #  get 'users/edit' => 'devise/registrations#edit',

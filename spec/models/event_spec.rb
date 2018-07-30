@@ -7,11 +7,11 @@
 #  id          :integer          not null, primary key
 #  category_id :integer
 #  description :text
-#  start_time  :time
-#  end_time    :time
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  start_time  :date
+#  end_time    :date
 #
 # Indexes
 #
@@ -21,10 +21,12 @@
 #
 #  fk_rails_...  (category_id => categories.id)
 #
-# rubocop:enable Metrics/LineLength
 
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'saves given a valid feedback' do
+    event = build(:event)
+    expect(event.save).to be true
+  end
 end
