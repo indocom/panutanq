@@ -22,9 +22,7 @@
       <div class="event-description">
         <%= @event.description %>
       </div>
-      <% @event.pictures.each do |picture| %>
-        <%= image_tag picture.picture.url(:medium) %>
-      <% end %>
+
       <br/>
       <% if can? :edit, @event %>
         <%= link_to "Edit Event", edit_event_path, class: 'btn btn-primary' %>
