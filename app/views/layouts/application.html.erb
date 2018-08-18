@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
   </head>
 
   <body>
@@ -52,9 +53,16 @@
             <li class="nav-item pl-4">
               <%= link_to 'Contact', contact_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item pl-4">
-              <%= link_to 'For Freshmen', freshmen_path, class: 'nav-link' %>
+            <!--dropdown For Freshmen-->
+            <li class="nav-item dropdown pl-4">
+              <%= link_to "For Freshman", freshmen_path, class: "nav-link dropdown-toggle" %>
+              <div class="dropdown-menu dropdown-events" aria-labelledby="navbarDropdown">
+                <% @freshmen.each do |freshman| %>
+                  <%= link_to freshman.name, freshman_path(freshman), class: "dropdown-item" %>
+                <% end %>
+              </div>
             </li>
+
             <li class="nav-item pl-4">
               <% if (current_user&.has_role? :admin) %>
                 <%= link_to 'See Feedback', feedbacks_path ,class: 'nav-link' %>

@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-3">
+      <h3>Links</h3>
+      <ul class="list-unstyled">
+        <% @freshmen.order(:name).each do |freshman| %>
+          <li><%= link_to freshman.name, freshman_path(freshman) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-9">
+      <h1>Freshmen Guide</h1>
+      <h2><%= @freshman.name %></h2>
+      <br/>
+      <div class="event-description">
+        <%=raw @freshman.description %>
+      </div>
+      <% if can? :edit, @freshman %>
+        <%= link_to "Edit", edit_freshman_path,  class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

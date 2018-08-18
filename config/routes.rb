@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root 'static_pages#home'
   get 'home', to: 'static_pages#home'
-  get 'freshmen', to: 'static_pages#freshmen'
   get 'contact', to: 'static_pages#contact'
   get 'about', to: 'static_pages#about'
 
@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   # post 'create_user' => 'users#create', :as => 'create_user'
 
   resources :feedbacks
+  authenticate :user do
+    resources :freshmen, only: %i[new create edit update destroy]
+  end
+  resources :freshmen, only: %i[index show]
 
   get '/users/:id/edit_role' => 'users#edit_role', :as => 'edit_user_role'
   get '/users/:id/edit_info' => 'users#edit_personal_info',

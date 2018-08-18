@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
-  before_action :set_events
+  before_action :set_events, :set_freshmen
 
   # Catch CanCan:AccessDenied exception
   rescue_from CanCan::AccessDenied do |_exception|
@@ -30,5 +30,9 @@ class ApplicationController < ActionController::Base
 
   def set_events
     @events = Event.all.order(:name)
+  end
+
+  def set_freshmen
+    @freshmen = Freshman.all.order(:name)
   end
 end
