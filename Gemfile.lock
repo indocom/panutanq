@@ -155,7 +155,7 @@ GEM
     popper_js (1.12.9)
     powerpack (0.1.1)
     puma (3.11.2)
-    rack (2.0.4)
+    rack (2.0.8)
     rack-mini-profiler (0.10.7)
       rack (>= 1.2.0)
     rack-protection (2.0.1)
