@@ -113,7 +113,7 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    json (2.1.0)
+    json (2.3.1)
     key_struct (0.4.2)
     libv8 (3.16.14.19)
     listen (3.1.5)
